@@ -1,0 +1,26 @@
+<!-- Texts for the app in English -->
+<resources>
+    <string name="app_name">FanNetixShop</string>
+    <string name="btnSignIn">SignIn</string>
+    <!-- Texts used in the new product activity in English -->
+    <string name="infoTextUpdateResources">Update photos and videos</string>
+    <string name="infoTextName">Product name</string>
+    <string name="infoTextDescription">Description</string>
+    <string name="infoTextType">Type</string>
+    <string name="rbFanmade">Fanmade</string>
+    <string name="rbOriginal">Original</string>
+
+    <!-- Options for the spinner (artists) -->
+    <string name="spOpt1">Bruno Mars</string>
+    <string name="spOpt2">BlackPink</string>
+    <string name="spOpt3">Eminem</string>
+    <string name="spOpt4">Stray Kids</string>
+    <string name="spOpt5">Harry Styles</string>
+    <string name="spOpt6">IZ*ONE</string>
+    <string name="spOpt7">Adele</string>
+
+    <!-- Other fields -->
+    <string name="infoTextPrice">Price</string>
+    <string name="infoTextObs">Observations</string>
+    <string name="btnUpdate">Upload</string>
+</resources>
