@@ -9,6 +9,7 @@
     <string name="infoTextType">Type</string>
     <string name="rbFanmade">Fanmade</string>
     <string name="rbOriginal">Original</string>
+    <string name="btnVolver">Back</string>
 
     <!-- Options for the spinner (artists) -->
     <string name="spOpt1">Bruno Mars</string>
