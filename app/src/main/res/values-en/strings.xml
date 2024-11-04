@@ -32,4 +32,8 @@
     <string name="descripFunkos">Funko Pop! BLACKPINK Pin Set</string>
     <string name="tvPriceFunkos">25.00€</string>
     <string name="btnUpload">Upload Product</string>
+    <string name="descripTshirtBruno">Hey Don’t Make This Weird Tee</string>
+    <string name="tvPriceTshirtBruno">65.95€</string>
+    <string name="hatBruno">Bruno Mars Hat</string>
+    <string name="tvPriceHatBruno">20.95€</string>
 </resources>

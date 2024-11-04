@@ -15,7 +15,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/encabezado" />
+        app:srcCompat="@drawable/encabezadoBruno" />
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -37,7 +37,7 @@
                 android:id="@+id/ivCamiseta"
                 android:layout_width="match_parent"
                 android:layout_height="211dp"
-                app:srcCompat="@drawable/camiseta" />
+                app:srcCompat="@drawable/camisetaBruno" />
 
             <TextView
                 android:id="@+id/tvDescripCami"
@@ -47,7 +47,7 @@
                 android:layout_marginEnd="30dp"
                 android:fontFamily="@font/poppins_medium"
                 android:gravity="center"
-                android:text="@string/descripTshirt"
+                android:text="@string/descripTshirtBruno"
                 android:textSize="24sp" />
 
             <LinearLayout
@@ -73,7 +73,7 @@
                     android:layout_marginStart="50dp"
                     android:layout_marginEnd="50dp"
                     android:fontFamily="@font/poppins_medium"
-                    android:text="@string/tvPriceTshirt"
+                    android:text="@string/tvPriceTshirtBruno"
                     android:textSize="24sp" />
             </LinearLayout>
             <!-- Agregar margen inferior entre productos -->
@@ -82,20 +82,20 @@
                 android:layout_height="30dp" /> <!-- Espacio adicional -->
             <!-- Funkos Section -->
             <ImageView
-                android:id="@+id/ivFunkos"
+                android:id="@+id/ivHat"
                 android:layout_width="match_parent"
                 android:layout_height="211dp"
-                app:srcCompat="@drawable/funkos" />
+                app:srcCompat="@drawable/GorraBruno" />
 
             <TextView
-                android:id="@+id/tvDescripFunkos"
+                android:id="@+id/tvDescripHat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:layout_marginEnd="30dp"
                 android:fontFamily="@font/poppins_medium"
                 android:gravity="center"
-                android:text="@string/descripFunkos"
+                android:text="@string/hatBruno"
                 android:textSize="24sp" />
 
             <LinearLayout
@@ -105,7 +105,7 @@
                 android:gravity="center_vertical">
 
                 <Button
-                    android:id="@+id/btnBuyFunkos"
+                    android:id="@+id/btnBuyHat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:backgroundTint="#000000"
@@ -115,13 +115,13 @@
                     android:layout_marginStart="50dp" />
 
                 <TextView
-                    android:id="@+id/tvPrecioFunkos"
+                    android:id="@+id/tvPrecioHat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="50dp"
                     android:layout_marginEnd="50dp"
                     android:fontFamily="@font/poppins_medium"
-                    android:text="@string/tvPriceFunkos"
+                    android:text="@string/tvPriceHatBruno"
                     android:textSize="24sp" />
             </LinearLayout>
 

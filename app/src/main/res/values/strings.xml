@@ -26,11 +26,15 @@
     <string name="infoTextObs">Observaciones</string>
     <string name="btnUpdate">Subir</string>
 
-    <!-- Textos usados en el xml de la tienda de Blackpink -->
+    <!-- Textos usados en los xml de la tienda-->
     <string name="descripTshirt">Camiseta Born Pink Heart Globe Black</string>
     <string name="btnBuy">Comprar</string>
     <string name="tvPriceTshirt">45.00€</string>
     <string name="descripFunkos">Funko Pop! BLACKPINK Set de Pins</string>
     <string name="tvPriceFunkos">25.00€</string>
     <string name="btnUpload">Subir Producto</string>
+    <string name="descripTshirtBruno">Camiseta Hey Don’t Make This Weird</string>
+    <string name="tvPriceTshirtBruno">65.95€</string>
+    <string name="hatBruno">Gorra Bruno Mars</string>
+    <string name="tvPriceHatBruno">20.95€</string>
 </resources>
