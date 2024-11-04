@@ -15,7 +15,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/encabezadoBruno" />
+        app:srcCompat="@drawable/encabezadoEminem" />
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -37,7 +37,7 @@
                 android:id="@+id/ivSudadera"
                 android:layout_width="match_parent"
                 android:layout_height="211dp"
-                app:srcCompat="@drawable/camisetaBruno" />
+                app:srcCompat="@drawable/sudaderaEminem" />
 
             <TextView
                 android:id="@+id/tvDescripSudadera"
@@ -47,7 +47,7 @@
                 android:layout_marginEnd="30dp"
                 android:fontFamily="@font/poppins_medium"
                 android:gravity="center"
-                android:text="@string/descripTshirtBruno"
+                android:text="@string/hoodieEminem"
                 android:textSize="24sp" />
 
             <LinearLayout
@@ -73,7 +73,7 @@
                     android:layout_marginStart="50dp"
                     android:layout_marginEnd="50dp"
                     android:fontFamily="@font/poppins_medium"
-                    android:text="@string/tvPriceTshirtBruno"
+                    android:text="@string/tvPriceHoddieEminem"
                     android:textSize="24sp" />
             </LinearLayout>
             <!-- Agregar margen inferior entre productos -->
@@ -85,7 +85,7 @@
                 android:id="@+id/iviPhoneCase"
                 android:layout_width="match_parent"
                 android:layout_height="211dp"
-                app:srcCompat="@drawable/GorraBruno" />
+                app:srcCompat="@drawable/fundaEminem" />
 
             <TextView
                 android:id="@+id/tviPhoneCase"
@@ -95,7 +95,7 @@
                 android:layout_marginEnd="30dp"
                 android:fontFamily="@font/poppins_medium"
                 android:gravity="center"
-                android:text="@string/hatBruno"
+                android:text="@string/iphoneCaseEminem"
                 android:textSize="24sp" />
 
             <LinearLayout

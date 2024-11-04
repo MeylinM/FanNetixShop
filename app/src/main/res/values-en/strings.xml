@@ -36,4 +36,7 @@
     <string name="tvPriceTshirtBruno">65.95€</string>
     <string name="hatBruno">Bruno Mars Hat</string>
     <string name="tvPriceHatBruno">20.95€</string>
+    <string name="hoodieEminem">TDOSS In Loving Memory Hoodie</string>
+    <string name="tvPriceHoddieEminem">65.00€</string>
+    <string name="iphoneCaseEminem">Paul Skit iPhone Case</string>
 </resources>
