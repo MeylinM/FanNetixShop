@@ -34,13 +34,13 @@
 
             <!-- Camiseta Section -->
             <ImageView
-                android:id="@+id/ivSudadera"
+                android:id="@+id/ivCamiseta"
                 android:layout_width="match_parent"
                 android:layout_height="211dp"
                 app:srcCompat="@drawable/camiseta" />
 
             <TextView
-                android:id="@+id/tvDescripSudadera"
+                android:id="@+id/tvDescripCamiseta"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
@@ -82,13 +82,13 @@
                 android:layout_height="30dp" /> <!-- Espacio adicional -->
             <!-- Funkos Section -->
             <ImageView
-                android:id="@+id/iviPhoneCase"
+                android:id="@+id/iviBracelet"
                 android:layout_width="match_parent"
                 android:layout_height="211dp"
                 app:srcCompat="@drawable/funkos" />
 
             <TextView
-                android:id="@+id/tviPhoneCase"
+                android:id="@+id/tvBraceletPrice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
@@ -105,7 +105,7 @@
                 android:gravity="center_vertical">
 
                 <Button
-                    android:id="@+id/btnBuyCase"
+                    android:id="@+id/btnBuyBracelet"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:backgroundTint="#000000"
@@ -115,7 +115,7 @@
                     android:layout_marginStart="50dp" />
 
                 <TextView
-                    android:id="@+id/tvPrecioCase"
+                    android:id="@+id/tvBraceletPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="50dp"

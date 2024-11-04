@@ -9,13 +9,13 @@
 
     <ImageView
         android:id="@+id/encabezado"
-        android:layout_width="410dp"
-        android:layout_height="210dp"
+        android:layout_width="412dp"
+        android:layout_height="216dp"
         app:layout_constraintBottom_toTopOf="@+id/scrollView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/encabezadoBruno" />
+        app:srcCompat="@drawable/encabezadoFito" />
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -33,11 +33,12 @@
             android:padding="16dp">
 
             <!-- Camiseta Section -->
+
             <ImageView
                 android:id="@+id/ivCamiseta"
                 android:layout_width="match_parent"
                 android:layout_height="211dp"
-                app:srcCompat="@drawable/camisetaBruno" />
+                app:srcCompat="@drawable/camisetaFito" />
 
             <TextView
                 android:id="@+id/tvDescripCamiseta"
@@ -47,7 +48,7 @@
                 android:layout_marginEnd="30dp"
                 android:fontFamily="@font/poppins_medium"
                 android:gravity="center"
-                android:text="@string/descripTshirtBruno"
+                android:text="@string/fitoTshirt"
                 android:textSize="24sp" />
 
             <LinearLayout
@@ -73,7 +74,7 @@
                     android:layout_marginStart="50dp"
                     android:layout_marginEnd="50dp"
                     android:fontFamily="@font/poppins_medium"
-                    android:text="@string/tvPriceTshirtBruno"
+                    android:text="@string/tvPriceFitoTshirt"
                     android:textSize="24sp" />
             </LinearLayout>
             <!-- Agregar margen inferior entre productos -->
@@ -85,17 +86,17 @@
                 android:id="@+id/iviBracelet"
                 android:layout_width="match_parent"
                 android:layout_height="211dp"
-                app:srcCompat="@drawable/GorraBruno" />
+                app:srcCompat="@drawable/PulseraFito" />
 
             <TextView
-                android:id="@+id/tvBraceletPrice"
+                android:id="@+id/tvBraceletDescrip"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:layout_marginEnd="30dp"
                 android:fontFamily="@font/poppins_medium"
                 android:gravity="center"
-                android:text="@string/hatBruno"
+                android:text="@string/braceletFito"
                 android:textSize="24sp" />
 
             <LinearLayout
