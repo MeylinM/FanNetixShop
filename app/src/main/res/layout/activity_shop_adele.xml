@@ -15,7 +15,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/encabezadoAdele" />
+        app:srcCompat="@drawable/encabezado_adele" />
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -37,7 +37,7 @@
                 android:id="@+id/ivCamiseta"
                 android:layout_width="match_parent"
                 android:layout_height="211dp"
-                app:srcCompat="@drawable/viniloAdele" />
+                app:srcCompat="@drawable/vinilo_adele" />
 
             <TextView
                 android:id="@+id/tvDescripCamiseta"
@@ -85,10 +85,10 @@
                 android:id="@+id/iviBracelet"
                 android:layout_width="match_parent"
                 android:layout_height="211dp"
-                app:srcCompat="@drawable/posterAdele" />
+                app:srcCompat="@drawable/poster_adele" />
 
             <TextView
-                android:id="@+id/tvBracelet"
+                android:id="@+id/tvDescripcion2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"

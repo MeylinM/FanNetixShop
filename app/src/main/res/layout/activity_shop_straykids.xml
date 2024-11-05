@@ -15,7 +15,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/encabezadoStraykids" />
+        app:srcCompat="@drawable/encabezado_straykids" />
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -38,7 +38,7 @@
                 android:id="@+id/ivCamiseta"
                 android:layout_width="match_parent"
                 android:layout_height="211dp"
-                app:srcCompat="@drawable/albumStraykids" />
+                app:srcCompat="@drawable/album_straykids" />
 
             <TextView
                 android:id="@+id/tvDescripCamiseta"
@@ -86,7 +86,7 @@
                 android:id="@+id/iviBracelet"
                 android:layout_width="match_parent"
                 android:layout_height="211dp"
-                app:srcCompat="@drawable/pelucheStraykids" />
+                app:srcCompat="@drawable/peluche_straykids" />
 
             <TextView
                 android:id="@+id/tvBraceletDescrip"

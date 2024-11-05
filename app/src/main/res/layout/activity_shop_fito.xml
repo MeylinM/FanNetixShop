@@ -15,7 +15,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/encabezadoFito" />
+        app:srcCompat="@drawable/encabezado_fito" />
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -38,7 +38,7 @@
                 android:id="@+id/ivCamiseta"
                 android:layout_width="match_parent"
                 android:layout_height="211dp"
-                app:srcCompat="@drawable/camisetaFito" />
+                app:srcCompat="@drawable/camiseta_fito" />
 
             <TextView
                 android:id="@+id/tvDescripCamiseta"
@@ -86,7 +86,7 @@
                 android:id="@+id/iviBracelet"
                 android:layout_width="match_parent"
                 android:layout_height="211dp"
-                app:srcCompat="@drawable/PulseraFito" />
+                app:srcCompat="@drawable/pulsera_fito" />
 
             <TextView
                 android:id="@+id/tvBraceletDescrip"
@@ -122,7 +122,7 @@
                     android:layout_marginStart="50dp"
                     android:layout_marginEnd="50dp"
                     android:fontFamily="@font/poppins_medium"
-                    android:text="@string/tvPriceHatBruno"
+                    android:text="@string/tvPrice"
                     android:textSize="24sp" />
             </LinearLayout>
 

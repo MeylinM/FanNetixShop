@@ -15,7 +15,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/encabezadoHarry" />
+        app:srcCompat="@drawable/encabezado_harry" />
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -38,7 +38,7 @@
                 android:id="@+id/ivCamiseta"
                 android:layout_width="match_parent"
                 android:layout_height="211dp"
-                app:srcCompat="@drawable/camisetaHarry" />
+                app:srcCompat="@drawable/camiseta_harry" />
 
             <TextView
                 android:id="@+id/tvDescripCamiseta"
@@ -86,7 +86,7 @@
                 android:id="@+id/iviBracelet"
                 android:layout_width="match_parent"
                 android:layout_height="211dp"
-                app:srcCompat="@drawable/llaveroHarry" />
+                app:srcCompat="@drawable/llavero_harry" />
 
             <TextView
                 android:id="@+id/tvBraceletDescrip"
