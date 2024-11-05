@@ -3,6 +3,12 @@
     <string name="app_name">FanNetixShop</string>
     <string name="btnSignIn">Iniciar Sesión</string>
 
+    <!-- Textos usados en la actividad de inicio de sesión -->
+    <string name="text_subTitulo">Inicie sesión para continuar</string>
+    <string name="text_email">EMAIL</string>
+    <string name="text_passwd">CONTRASEÑA</string>
+    <string name="btn_SigIn">Inicio Sesión</string>
+
     <!-- Textos usados en la actividad nuevo producto -->
     <string name="infoTextUpdateResources">Subir fotos y videos</string>
     <string name="infoTextName">Nombre del Producto</string>
@@ -20,9 +26,30 @@
     <string name="spOpt5">Harry Styles</string>
     <string name="spOpt6">IZ*ONE</string>
     <string name="spOpt7">Adele</string>
+    <string name="spOpt8" >Fito</string>
 
     <!-- Otros campos -->
     <string name="infoTextPrice">Precio</string>
     <string name="infoTextObs">Observaciones</string>
     <string name="btnUpdate">Subir</string>
+
+    <!-- Textos usados en los xml de la tienda-->
+    <string name="descripTshirt">Camiseta Born Pink Heart Globe Black</string>
+    <string name="btnBuy">Comprar</string>
+    <string name="tvPriceTshirt">45.00€</string>
+    <string name="descripFunkos">Funko Pop! BLACKPINK Set de Pins</string>
+    <string name="tvPriceFunkos">25.00€</string>
+    <string name="btnUpload">Subir Producto</string>
+    <string name="descripTshirtBruno">Camiseta Hey Don’t Make This Weird</string>
+    <string name="tvPriceTshirtBruno">65.95€</string>
+    <string name="hatBruno">Gorra Bruno Mars</string>
+    <string name="tvPrice">20.95€</string>
+    <string name="hoodieEminem">Sudadera TDOSS In Loving Memory</string>
+    <string name="tvPriceHoddieEminem">65.00€</string>
+    <string name="iphoneCaseEminem">Funda iPhone Paul Skit</string>
+    <string name="fitoTshirt">Camiseta Luminiscente “Huesos”</string>
+    <string name="tvPriceFitoTshirt">24.95€</string>
+    <string name="braceletFito">Pulsera "Cada vez cadáver"</string>
+    <string name="album">MAXIDENT (T-CRUSH ver.)</string>
+    <string name="plushie">Peluche Stray Kids</string>
 </resources>
