@@ -17,7 +17,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String CREATE_TABLE_USUARIOS = "CREATE TABLE Usuarios ("
             + "id_usuario INTEGER PRIMARY KEY AUTOINCREMENT,"
             + "email TEXT NOT NULL UNIQUE,"
-            + "contrasena TEXT NOT NULL);";
+            + "passwd TEXT NOT NULL);";
 
     private static final String CREATE_TABLE_ARTISTAS = "CREATE TABLE Artistas ("
             + "id_artista INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -58,6 +58,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_TABLE_ARTICULOS);
         db.execSQL(CREATE_TABLE_ARCHIVOS_MULTIMEDIA);
         db.execSQL(CREATE_TABLE_ARTICULOS_CARRITO);
+        insertarUsuario(db);
         insertarArtistas(db);
         insertarArticulos(db);
     }
@@ -70,6 +71,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS Artistas");
         db.execSQL("DROP TABLE IF EXISTS Usuarios");
         onCreate(db);
+    }
+
+    private void insertarUsuario(SQLiteDatabase db){
+        db.execSQL("INSERT INTO Usuarios (email, passwd) VALUES ('admin@gmail.com', 'abcd*1234');");
+        db.execSQL("INSERT INTO Usuarios (email, passwd) VALUES ('elbire@gmail.com', 'abcd*1234');");
+        db.execSQL("INSERT INTO Usuarios (email, passwd) VALUES ('irati@gmail.com', 'abcd*1234');");
+        db.execSQL("INSERT INTO Usuarios (email, passwd) VALUES ('olaia@gmail.com', 'abcd*1234');");
+        db.execSQL("INSERT INTO Usuarios (email, passwd) VALUES ('meylin@gmail.com', 'abcd*1234');");
     }
 
     private void insertarArtistas(SQLiteDatabase db) {
@@ -132,4 +141,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cursor.close();
         return articulos;
     }
+
+    public boolean validarUsuario(String email, String passwd) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        boolean usuarioValido = false;
+
+        // Consulta SQL para verificar el email y la contraseña
+        Cursor cursor = db.rawQuery("SELECT * FROM Usuarios WHERE email = ? AND passwd = ?",
+                new String[]{email, passwd});
+
+        if (cursor.moveToFirst()) {
+            usuarioValido = true; // Usuario encontrado
+        }
+
+        cursor.close();
+        return usuarioValido;
+    }
+
 }
