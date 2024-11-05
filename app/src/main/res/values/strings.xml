@@ -3,6 +3,12 @@
     <string name="app_name">FanNetixShop</string>
     <string name="btnSignIn">Iniciar Sesión</string>
 
+    <!-- Textos usados en la actividad de inicio de sesión -->
+    <string name="text_subTitulo">Inicie sesión para continuar</string>
+    <string name="text_email">EMAIL</string>
+    <string name="text_passwd">CONTRASEÑA</string>
+    <string name="btn_SigIn">Inicio Sesión</string>
+
     <!-- Textos usados en la actividad nuevo producto -->
     <string name="infoTextUpdateResources">Subir fotos y videos</string>
     <string name="infoTextName">Nombre del Producto</string>

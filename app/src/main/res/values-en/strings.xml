@@ -2,6 +2,13 @@
 <resources>
     <string name="app_name">FanNetixShop</string>
     <string name="btnSignIn">SignIn</string>
+
+    <!-- Texts used in the SignIn activity in English -->
+    <string name="text_subTitulo">Sign in to continue</string>
+    <string name="text_email">EMAIL</string>
+    <string name="text_passwd">PASSWORD</string>
+    <string name="btn_SigIn">Sign In</string>
+
     <!-- Texts used in the new product activity in English -->
     <string name="infoTextUpdateResources">Update photos and videos</string>
     <string name="infoTextName">Product name</string>
