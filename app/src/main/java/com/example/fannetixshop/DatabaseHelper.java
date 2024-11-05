@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -123,24 +124,47 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         List<Articulo> articulos = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
 
+        // Asegúrate de que 'nombreArtista' no esté vacío o nulo
+        if (nombreArtista == null || nombreArtista.isEmpty()) {
+            return articulos; // Devuelve una lista vacía si el nombre del artista es inválido
+        }
+
+        // Realizar la consulta
         Cursor cursor = db.rawQuery("SELECT a.titulo, a.descripcion, a.tipo, a.precio " +
                         "FROM Articulos a INNER JOIN Artistas ar ON a.id_artista = ar.id_artista WHERE ar.nombre = ?",
                 new String[]{nombreArtista});
 
-        if (cursor.moveToFirst()) {
-            do {
-                String titulo = cursor.getString(cursor.getColumnIndexOrThrow("titulo"));
-                String descripcion = cursor.getString(cursor.getColumnIndexOrThrow("descripcion"));
-                String tipoStr = cursor.getString(cursor.getColumnIndexOrThrow("tipo"));
-                Tipo tipo = Tipo.valueOf(tipoStr.toUpperCase());
-                double precio = cursor.getDouble(cursor.getColumnIndexOrThrow("precio"));
+        // Revisar si hay resultados
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                do {
+                    String titulo = cursor.getString(cursor.getColumnIndexOrThrow("titulo"));
+                    String descripcion = cursor.getString(cursor.getColumnIndexOrThrow("descripcion"));
+                    String tipoStr = cursor.getString(cursor.getColumnIndexOrThrow("tipo"));
 
-                articulos.add(new Articulo(titulo, descripcion, tipo, precio));
-            } while (cursor.moveToNext());
+                    // Asegúrate de que el tipo se pueda convertir
+                    Tipo tipo;
+                    try {
+                        tipo = Tipo.valueOf(tipoStr.toUpperCase());
+                    } catch (IllegalArgumentException e) {
+                        // Manejo de error si el tipo no es válido
+                        tipo = null; // O asigna un valor por defecto
+                    }
+
+                    double precio = cursor.getDouble(cursor.getColumnIndexOrThrow("precio"));
+
+                    articulos.add(new Articulo(titulo, descripcion, tipo, precio));
+                } while (cursor.moveToNext());
+            } else {
+                Log.d("DatabaseHelper", "No se encontraron artículos para el artista: " + nombreArtista);
+            }
+            cursor.close();
+        } else {
+            Log.e("DatabaseHelper", "Cursor es nulo, error en la consulta");
         }
-        cursor.close();
         return articulos;
     }
+
 
     public boolean validarUsuario(String email, String passwd) {
         SQLiteDatabase db = this.getReadableDatabase();
