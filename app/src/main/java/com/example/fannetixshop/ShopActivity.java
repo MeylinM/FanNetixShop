@@ -1,7 +1,9 @@
 package com.example.fannetixshop;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -24,10 +26,18 @@ public class ShopActivity extends AppCompatActivity {
         TextView tvTitulo = findViewById(R.id.tvDescripCamiseta);
         TextView tvDescripcion = findViewById(R.id.tvTitulo);
         TextView tvPrecioCamiseta = findViewById(R.id.tvPrecioCami);
-
+        Button btnUpload = findViewById(R.id.btnUpload);
         // Obtener los artículos de Blackpink CASCA AQUI
         articulos = dbHelper.obtenerArticulosPorArtista("Blackpink");
 
+        btnUpload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Crea un Intent para abrir UploadProductActivity
+                Intent intent = new Intent(ShopActivity.this, UploadProductActivity.class);
+                startActivity(intent);
+            }
+        });
         // El primer artículo es una camiseta
         if (!articulos.isEmpty()) {
             System.out.println("La lista de artículos está llena.");

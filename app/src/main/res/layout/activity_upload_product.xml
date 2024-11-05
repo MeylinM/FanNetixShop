@@ -67,7 +67,7 @@
     <LinearLayout
         android:id="@+id/subirContenido"
         android:layout_width="318dp"
-        android:layout_height="167dp"
+        android:layout_height="154dp"
         android:layout_marginTop="132dp"
         android:background="#66F96053"
         android:gravity="center"
@@ -100,7 +100,7 @@
         android:id="@+id/contenidoSubido"
         android:layout_width="318dp"
         android:layout_height="78dp"
-        android:layout_marginTop="308dp"
+        android:layout_marginTop="290dp"
         android:background="#66F96053"
         android:gravity="center"
         android:orientation="vertical"
@@ -129,9 +129,9 @@
 
     <LinearLayout
         android:id="@+id/infoProducto"
-        android:layout_width="318dp"
-        android:layout_height="260dp"
-        android:layout_marginTop="396dp"
+        android:layout_width="316dp"
+        android:layout_height="311dp"
+        android:layout_marginTop="375dp"
         android:background="#66F96053"
         android:gravity="center"
         android:orientation="vertical"
@@ -146,13 +146,15 @@
             android:layout_height="wrap_content"
             android:text="@string/infoTextName"
             android:textColor="#FFFFFF "
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <EditText
             android:id="@+id/etNombreProducto"
             android:layout_width="match_parent"
-            android:layout_height="24dp"
+            android:layout_height="55dp"
+            android:hint="@string/infoTextName"
+            android:inputType="text"
             android:textAlignment="viewStart" />
 
         <TextView
@@ -162,13 +164,15 @@
             android:text="@string/infoTextDescription"
             android:textAlignment="viewStart"
             android:textColor="#FFFFFF "
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <EditText
             android:id="@+id/etDescripcion"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="56dp"
+            android:hint="@string/infoTextDescription"
+            android:inputType="text" />
 
         <TextView
             android:id="@+id/tvTipo"
@@ -177,58 +181,77 @@
             android:text="@string/infoTextType"
             android:textAlignment="viewStart"
             android:textColor="#FFFFFF "
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <RadioGroup
+            android:id="@+id/radioGroupTipo"
             android:layout_width="match_parent"
-            android:layout_height="30dp" >
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
                 <RadioButton
-                    android:id="@+id/radioButton"
+                    android:id="@+id/radioButtonOriginal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/rbOriginal"
+                    android:textSize="10sp" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonFanmade"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="RadioButton" />
+                    android:text="@string/rbFanmade"
+                    android:textSize="10sp" />
 
-                <RadioButton
-                    android:id="@+id/radioButton2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="RadioButton" />
-            </LinearLayout>
         </RadioGroup>
 
-        <TextView
-            android:id="@+id/tvArtista"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/infoTextArtist"
-            android:textAlignment="viewStart"
-            android:textColor="#FFFFFF "
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:layout_height="52dp"
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/tvPrecio"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/infoTextPrice"
-            android:textAlignment="viewStart"
-            android:textColor="#FFFFFF "
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            <TextView
+                android:id="@+id/tvArtista"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/infoTextArtist"
+                android:textAlignment="viewStart"
+                android:textColor="#FFFFFF "
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
-        <EditText
+            <Spinner
+                android:id="@+id/spinnerArtistas"
+                android:layout_width="270dp"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="numberDecimal" />
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvPrecio"
+                android:layout_width="59dp"
+                android:layout_height="31dp"
+                android:text="@string/infoTextPrice"
+                android:textAlignment="viewStart"
+                android:textColor="#FFFFFF "
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etPrecio"
+                android:layout_width="258dp"
+                android:layout_height="match_parent"
+                android:hint="@string/infoTextPrice"
+                android:inputType="numberDecimal"
+                android:textSize="8sp" />
+        </LinearLayout>
 
     </LinearLayout>
 

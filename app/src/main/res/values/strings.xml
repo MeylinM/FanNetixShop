@@ -15,8 +15,8 @@
     <string name="infoTextName">Nombre del Producto</string>
     <string name="infoTextDescription">Descripción</string>
     <string name="infoTextType">Tipo</string>
-    <string name="rbFanmade">Fanmade</string>
-    <string name="rbOriginal">Original</string>
+    <string name="rbFanmade">FANMADE</string>
+    <string name="rbOriginal">ORIGINAL</string>
     <string name="infoTextArtist">Artista</string>
     <string name="infoTextPrice">Precio</string>
     <string name="btnVolver">Volver</string>
