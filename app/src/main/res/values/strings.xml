@@ -9,14 +9,19 @@
     <string name="text_passwd">CONTRASEÑA</string>
     <string name="btn_SigIn">Inicio Sesión</string>
 
-    <!-- Textos usados en la actividad nuevo producto -->
+    <!-- Textos usados en la actividad subir producto -->
+    <string name="tvTitulo">Subir Producto</string>
     <string name="infoTextUpdateResources">Subir fotos y videos</string>
     <string name="infoTextName">Nombre del Producto</string>
     <string name="infoTextDescription">Descripción</string>
     <string name="infoTextType">Tipo</string>
     <string name="rbFanmade">Fanmade</string>
     <string name="rbOriginal">Original</string>
+    <string name="infoTextArtist">Artista</string>
+    <string name="infoTextPrice">Precio</string>
     <string name="btnVolver">Volver</string>
+    <string name="sbContend">Desplázate para ver más imágenes o videos subidos</string>
+    <string name="btnUploadProduct">Subir</string>
 
     <!-- Opciones del spinner (artistas) -->
     <string name="spOpt1">Bruno Mars</string>
@@ -27,11 +32,6 @@
     <string name="spOpt6">IZ*ONE</string>
     <string name="spOpt7">Adele</string>
     <string name="spOpt8" >Fito</string>
-
-    <!-- Otros campos -->
-    <string name="infoTextPrice">Precio</string>
-    <string name="infoTextObs">Observaciones</string>
-    <string name="btnUpdate">Subir</string>
 
     <!-- Textos usados en los xml de la tienda-->
     <string name="descripTshirt">Camiseta Born Pink Heart Globe Black</string>

@@ -134,7 +134,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:backgroundTint="#000000"
-        android:text="@string/btnUpload"
+        android:text="@string/btnUploadProduct"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
