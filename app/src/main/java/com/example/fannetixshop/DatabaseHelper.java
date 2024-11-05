@@ -94,30 +94,29 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private void insertarArticulos(SQLiteDatabase db) {
         //ARTICULOS BRUNO MARS
-        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio) VALUES (1, 'Album 1', 'Descripción del álbum 1 de Blackpink', 'Original', 15.99);");
-        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio) VALUES (1, 'Merchandising 1', 'Camiseta oficial de Blackpink', 'Original', 25.00);");
+        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio) VALUES (1, 'Hey Don’t Make This Weird Tee', 'Camiseta nueva, sin usar.', 'Original', 65.95);");
+        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio) VALUES (1, 'Bruno Mars Hat', 'Poco usado, como nuevo.', 'Original', 25.00);");
         //ARTICULOS BLACK PINK
-        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio) VALUES (2, 'Album 1', 'Descripción del álbum 1 de Mamamoo', 'Original', 14.99);");
-        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio) VALUES (2, 'Merchandising 1', 'Taza oficial de Mamamoo', 'Fanmade', 10.50);");
+        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio) VALUES (2, 'Born Pink Hear Globe Black T-Shirt', 'Camiseta nueva, sin usar.', 'Original', 45.00);");
+        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio) VALUES (2, 'Funko Pop! BLACKPINK Pin Set', 'Sin abrir', 'Original', 30.50);");
         //ARTICULOS EMINEM
-        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio) VALUES (3, 'Album 1', 'Descripción del álbum 1 de IZ*ONE', 'Original', 16.99);");
-        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio) VALUES (3, 'Merchandising 1', 'Poster oficial de IZ*ONE', 'Fanmade', 7.00);");
+        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio) VALUES (3, 'TDOSS In Loving Memory Hoodie', 'Sin usar', 'Original', 65.00);");
+        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio) VALUES (3, 'Paul Skit iPhone Case', 'Nuevo', 'Original', 27.00);");
         //ARTICULOS STRAYKIDS
-        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio) VALUES (4, 'Album 1', 'Descripción del álbum 1 de StrayKids', 'Original', 18.99);");
-        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio) VALUES (4, 'Merchandising 1', 'Gorra oficial de StrayKids', 'Fanmade', 20.00);");
+        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio) VALUES (4, 'MAXIDENT (T-CRUSH ver.)', 'Sin abrir', 'Original', 45.00);");
+        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio) VALUES (4, 'Stray Kids Plushie', 'Peluche de Bang Chan', 'Original', 20.00);");
         //ARTICULOS HARRY STYLES
-        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio) VALUES (1, 'Album 1', 'Descripción del álbum 1 de Blackpink', 'Original', 15.99);");
-        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio) VALUES (1, 'Merchandising 1', 'Camiseta oficial de Blackpink', 'Original', 25.00);");
+        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio) VALUES (5, 'Rainbow Event Tee', 'Tour de Munich', 'Original', 30.00);");
+        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio) VALUES (5, 'TPWK Logo Keychain', 'Llavero nuevo', 'Fanmade', 25.00);");
         //ARTICULOS IZ*ONE
-        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio) VALUES (2, 'Album 1', 'Descripción del álbum 1 de Mamamoo', 'Original', 14.99);");
-        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio) VALUES (2, 'Merchandising 1', 'Taza oficial de Mamamoo', 'Fanmade', 10.50);");
+        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio) VALUES (6, 'T-Shirt Iz*One EYES ON ME', 'Camiseta original', 'Original', 29.99);");
+        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio) VALUES (6, 'Iz*One  Keychain', 'Llavero echo de resina con accesorios', 'Fanmade', 10.50);");
         //ARTICULOS ADELE
-        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio) VALUES (3, 'Album 1', 'Descripción del álbum 1 de IZ*ONE', 'Original', 16.99);");
-        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio) VALUES (3, 'Merchandising 1', 'Poster oficial de IZ*ONE', 'Fanmade', 7.00);");
+        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio) VALUES (7, '30 (Double Vinyl)', 'Vinilo de Adele sin usar', 'Original', 30.00);");
+        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio) VALUES (7, 'Adele poster', 'Poster oficial de Adele', 'Fanmade', 7.00);");
         //ARTICULOS FITO
-        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio) VALUES (4, 'Album 1', 'Descripción del álbum 1 de StrayKids', 'Original', 18.99);");
-        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio) VALUES (4, 'Merchandising 1', 'Gorra oficial de StrayKids', 'Fanmade', 20.00);");
-
+        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio) VALUES (8, '“Huesos” Luminiscent T-shirt ', 'Camiseta sin usar del último concierto', 'Original', 24.95);");
+        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio) VALUES (8, '\"Cada vez cadáver\" Bracelet ', 'Pulsera de plata', 'Original', 40.00);");
     }
 
     public List<Articulo> obtenerArticulosPorArtista(String nombreArtista) {
@@ -128,16 +127,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                         "FROM Articulos a INNER JOIN Artistas ar ON a.id_artista = ar.id_artista WHERE ar.nombre = ?",
                 new String[]{nombreArtista});
 
-        while (cursor.moveToNext()) {
-            String titulo = cursor.getString(cursor.getColumnIndexOrThrow("titulo"));
-            String descripcion = cursor.getString(cursor.getColumnIndexOrThrow("descripcion"));
-            String tipoStr = cursor.getString(cursor.getColumnIndexOrThrow("tipo"));
-            Tipo tipo = Tipo.valueOf(tipoStr.toUpperCase());
-            double precio = cursor.getDouble(cursor.getColumnIndexOrThrow("precio"));
+        if (cursor.moveToFirst()) {
+            do {
+                String titulo = cursor.getString(cursor.getColumnIndexOrThrow("titulo"));
+                String descripcion = cursor.getString(cursor.getColumnIndexOrThrow("descripcion"));
+                String tipoStr = cursor.getString(cursor.getColumnIndexOrThrow("tipo"));
+                Tipo tipo = Tipo.valueOf(tipoStr.toUpperCase());
+                double precio = cursor.getDouble(cursor.getColumnIndexOrThrow("precio"));
 
-            articulos.add(new Articulo(titulo, descripcion, tipo, precio));
+                articulos.add(new Articulo(titulo, descripcion, tipo, precio));
+            } while (cursor.moveToNext());
         }
-
         cursor.close();
         return articulos;
     }
