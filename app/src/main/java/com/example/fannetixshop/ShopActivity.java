@@ -1,14 +1,14 @@
 package com.example.fannetixshop;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.List;
-import java.util.logging.Logger;
 
 public class ShopActivity extends AppCompatActivity {
     private DatabaseHelper dbHelper = new DatabaseHelper(this);
@@ -20,25 +20,40 @@ public class ShopActivity extends AppCompatActivity {
         setContentView(R.layout.activity_shop_blackpink);
 
         // Obtener los elementos del layout
+        ImageView encabezado = findViewById(R.id.encabezado);
+
         TextView tvTipo = findViewById(R.id.tvType);
-        TextView tvTitulo = findViewById(R.id.tvDescripCamiseta);
-        TextView tvDescripcion = findViewById(R.id.tvTitulo);
+        TextView tvTitulo = findViewById(R.id.tvTitulo);
+        TextView tvDescripcion = findViewById(R.id.tvDescripCamiseta);
         TextView tvPrecioCamiseta = findViewById(R.id.tvPrecioCami);
 
+        TextView tvType2 = findViewById(R.id.tvType2);
+        TextView tvTitulo2 = findViewById(R.id.tvTitulo2);
+        TextView tvDescrip2 = findViewById(R.id.tvDescrip2);
+        TextView tvPrice2 = findViewById(R.id.tvPrice2);
+
+        Bundle extras = getIntent().getExtras();
+        String artista = extras.getString("Nombre");
+
+        encabezado.setImageDrawable(getDrawable(R.drawable.encabezado));
+
+
         // Obtener los artículos de Blackpink CASCA AQUI
-        articulos = dbHelper.obtenerArticulosPorArtista("Blackpink");
+        articulos = dbHelper.obtenerArticulosPorArtista(artista);
 
         // El primer artículo es una camiseta
         if (!articulos.isEmpty()) {
-            System.out.println("La lista de artículos está llena.");
-            Articulo camiseta = articulos.get(0); // Suponiendo que el primer artículo es la camiseta
+            Articulo camiseta = articulos.get(0);
             tvTipo.setText(camiseta.getTipo().name());
             tvTitulo.setText(camiseta.getTitulo());
             tvDescripcion.setText(camiseta.getDescripcion());
             tvPrecioCamiseta.setText(String.valueOf(camiseta.getPrecio()));
-        }else {
-            System.out.println("La lista de artículos está vacía.");
-        }
 
+            Articulo funkos = articulos.get(1);
+            tvType2.setText(funkos.getTipo().name());
+            tvTitulo2.setText(funkos.getTitulo());
+            tvDescrip2.setText(funkos.getDescripcion());
+            tvPrice2.setText(String.valueOf(funkos.getPrecio()));
+        }
     }
 }

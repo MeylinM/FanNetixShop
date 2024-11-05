@@ -27,6 +27,7 @@ public class MenuArtistActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MenuArtistActivity.this, ShopActivity.class);
+                intent.putExtra("Nombre", "BlackPink");
                 startActivity(intent);
             }
         });
