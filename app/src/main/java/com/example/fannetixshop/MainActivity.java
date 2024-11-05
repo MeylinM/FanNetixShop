@@ -10,7 +10,6 @@ import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
-
     private EditText editTextEmail;
     private EditText editTextPassword;
     private DatabaseHelper databaseHelper;
@@ -34,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String email = editTextEmail.getText().toString().trim();
                 String password = editTextPassword.getText().toString().trim();
+
 
                 // Verificar que el usuario exista y que la contraseña sea correcta
                 if (databaseHelper.validarUsuario(email, password)) {
