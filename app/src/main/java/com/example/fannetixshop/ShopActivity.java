@@ -49,8 +49,8 @@ public class ShopActivity extends AppCompatActivity {
         carrito.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent intent = new Intent(ShopActivity.this, CarritoActivity.class);
-                //startActivity(intent);
+                Intent intent = new Intent(ShopActivity.this, CartActivity.class);
+                startActivity(intent);
                 mediaPlayer.pause();
             }
         });
@@ -58,7 +58,7 @@ public class ShopActivity extends AppCompatActivity {
         btnSubirProducto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ShopActivity.this, UpdateProductActivity.class);
+                Intent intent = new Intent(ShopActivity.this, UploadProductActivity.class);
                 startActivity(intent);
                 mediaPlayer.pause();
             }
