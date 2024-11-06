@@ -1,5 +1,6 @@
 package com.example.fannetixshop;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -181,5 +182,45 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cursor.close();
         return usuarioValido;
     }
+
+    public List<Artista> obtenerArtistas() {
+        List<Artista> artistas = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT id_artista, nombre FROM Artistas", null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                int idArtista = cursor.getInt(cursor.getColumnIndexOrThrow("id_artista"));
+                String nombre = cursor.getString(cursor.getColumnIndexOrThrow("nombre"));
+                artistas.add(new Artista(idArtista, nombre));
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        return artistas;
+    }
+
+    public boolean crearArticulo(Articulo articulo) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        // Crear un ContentValues para almacenar los valores del artículo
+        ContentValues values = new ContentValues();
+        values.put("id_artista", articulo.getIdArtista()); // Asegúrate de que el método getIdArtista() exista en la clase Articulo
+        values.put("titulo", articulo.getTitulo());
+        values.put("descripcion", articulo.getDescripcion());
+        values.put("tipo", articulo.getTipo().toString()); // Convierte el tipo a String
+        values.put("precio", articulo.getPrecio());
+
+        // Insertar el artículo en la tabla y obtener el ID del artículo creado
+        long newRowId = db.insert("Articulos", null, values);
+
+        // Cerrar la base de datos
+        db.close();
+
+        // Retornar true si la inserción fue exitosa, false de lo contrario
+        return newRowId != -1;
+    }
+
+
 
 }

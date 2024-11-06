@@ -10,13 +10,18 @@
     <string name="btn_SigIn">Sign In</string>
 
     <!-- Texts used in the new product activity in English -->
-    <string name="infoTextUpdateResources">Update photos and videos</string>
+    <string name="tvTitulo">Upload Product</string>
+    <string name="infoTextUpdateResources">Upload photos and videos</string>
     <string name="infoTextName">Product name</string>
     <string name="infoTextDescription">Description</string>
     <string name="infoTextType">Type</string>
     <string name="rbFanmade">Fanmade</string>
     <string name="rbOriginal">Original</string>
+    <string name="infoTextArtist">Artist</string>
+    <string name="infoTextPrice">Price</string>
     <string name="btnVolver">Back</string>
+    <string name="sbContend">Scroll down to see more images or videos uploaded</string>
+    <string name="btnUploadProduct">Upload</string>
 
     <!-- Options for the spinner (artists) -->
     <string name="spOpt1">Bruno Mars</string>
@@ -27,11 +32,6 @@
     <string name="spOpt6">IZ*ONE</string>
     <string name="spOpt7">Adele</string>
     <string name="spOpt8">Fito</string>
-
-    <!-- Other fields -->
-    <string name="infoTextPrice">Price</string>
-    <string name="infoTextObs">Observations</string>
-    <string name="btnUpdate">Upload</string>
 
     <!-- Texts used in the shop xmls -->
     <string name="btnBuy">Buy</string>

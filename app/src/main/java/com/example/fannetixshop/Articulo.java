@@ -5,8 +5,17 @@ public class Articulo {
     private String descripcion;
     private Tipo tipo; // 'fanmade' o 'original'
     private double precio; // Precio del artículo
+    private int idArtista; // ID del artista
 
-    // Constructor actualizado sin observaciones
+    // Constructor actualizado con idArtista
+    public Articulo(String titulo, String descripcion, Tipo tipo, double precio, int idArtista) {
+        this.titulo = titulo;
+        this.descripcion = descripcion;
+        this.tipo = tipo;
+        this.precio = precio; // Precio del artículo
+        this.idArtista = idArtista; // Asignar ID del artista
+    }
+
     public Articulo(String titulo, String descripcion, Tipo tipo, double precio) {
         this.titulo = titulo;
         this.descripcion = descripcion;
@@ -14,6 +23,7 @@ public class Articulo {
         this.precio = precio; // Precio del artículo
     }
 
+    // Getters
     public String getTitulo() {
         return titulo;
     }
@@ -28,5 +38,14 @@ public class Articulo {
 
     public double getPrecio() {
         return precio; // Getter para el precio
+    }
+
+    public int getIdArtista() {
+        return idArtista; // Getter para el ID del artista
+    }
+
+    // Setter
+    public void setIdArtista(int idArtista) {
+        this.idArtista = idArtista;
     }
 }
