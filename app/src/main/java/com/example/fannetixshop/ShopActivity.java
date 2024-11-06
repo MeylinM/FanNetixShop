@@ -1,6 +1,7 @@
 package com.example.fannetixshop;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,8 +16,9 @@ import java.util.List;
 public class ShopActivity extends AppCompatActivity {
     private DatabaseHelper dbHelper = new DatabaseHelper(this);
     private List<Articulo> articulos;
-    private ImageView volver, carrito;
+    private ImageView volver, carrito, btnPlay;
     private Button btnSubirProducto;
+    private MediaPlayer mediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,7 @@ public class ShopActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(ShopActivity.this, MenuArtistActivity.class);
                 startActivity(intent);
+                mediaPlayer.pause();
             }
         });
         carrito = (ImageView) findViewById(R.id.carrito);
@@ -48,6 +51,7 @@ public class ShopActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //Intent intent = new Intent(ShopActivity.this, CarritoActivity.class);
                 //startActivity(intent);
+                mediaPlayer.pause();
             }
         });
         btnSubirProducto = (Button) findViewById(R.id.btnSubirProducto);
@@ -56,6 +60,20 @@ public class ShopActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(ShopActivity.this, UpdateProductActivity.class);
                 startActivity(intent);
+                mediaPlayer.pause();
+            }
+        });
+        btnPlay = (ImageView) findViewById(R.id.btnPlay);
+        btnPlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!mediaPlayer.isPlaying()) {
+                    mediaPlayer.start();
+                    btnPlay.setImageDrawable(getDrawable(R.drawable.pause));
+                } else {
+                    mediaPlayer.pause();
+                    btnPlay.setImageDrawable(getDrawable(R.drawable.play));
+                }
             }
         });
 
@@ -66,6 +84,8 @@ public class ShopActivity extends AppCompatActivity {
 
         //Poner las imagenes por defecto correspondientes al artista
         if (artista.equals("BlackPink")){
+            mediaPlayer = MediaPlayer.create(this, R.raw.blackpink);
+
             ImageView encabezado = findViewById(R.id.encabezado);
             encabezado.setImageDrawable(getDrawable(R.drawable.encabezado));
 
@@ -91,6 +111,8 @@ public class ShopActivity extends AppCompatActivity {
             ivSegundoArtImage5.setImageDrawable(getDrawable(R.drawable.funko4));
 
         } else if (artista.equals("Adele")) {
+            mediaPlayer = MediaPlayer.create(this, R.raw.adele);
+
             ImageView encabezado = findViewById(R.id.encabezado);
             encabezado.setImageDrawable(getDrawable(R.drawable.encabezado_adele));
 
@@ -101,6 +123,8 @@ public class ShopActivity extends AppCompatActivity {
             ivSegundoArtImage1.setImageDrawable(getDrawable(R.drawable.poster_adele));
 
         } else if (artista.equals("Eminem")) {
+            mediaPlayer = MediaPlayer.create(this, R.raw.eminem);
+
             ImageView encabezado = findViewById(R.id.encabezado);
             encabezado.setImageDrawable(getDrawable(R.drawable.encabezado_eminem));
 
@@ -111,6 +135,8 @@ public class ShopActivity extends AppCompatActivity {
             ivSegundoArtImage1.setImageDrawable(getDrawable(R.drawable.funda_eminem));
 
         } else if (artista.equals("Bruno Mars")) {
+            mediaPlayer = MediaPlayer.create(this, R.raw.bruno_mars);
+
             ImageView encabezado = findViewById(R.id.encabezado);
             encabezado.setImageDrawable(getDrawable(R.drawable.encabezado_bruno));
 
@@ -121,6 +147,8 @@ public class ShopActivity extends AppCompatActivity {
             ivSegundoArtImage1.setImageDrawable(getDrawable(R.drawable.gorra_bruno));
 
         } else if (artista.equals("Harry Styles")) {
+            mediaPlayer = MediaPlayer.create(this, R.raw.harry_styles);
+
             ImageView encabezado = findViewById(R.id.encabezado);
             encabezado.setImageDrawable(getDrawable(R.drawable.encabezado_harry));
 
@@ -131,6 +159,8 @@ public class ShopActivity extends AppCompatActivity {
             ivSegundoArtImage1.setImageDrawable(getDrawable(R.drawable.llavero_harry));
 
         } else if (artista.equals("Fito")) {
+            mediaPlayer = MediaPlayer.create(this, R.raw.fito);
+
             ImageView encabezado = findViewById(R.id.encabezado);
             encabezado.setImageDrawable(getDrawable(R.drawable.encabezado_fito));
 
@@ -141,6 +171,8 @@ public class ShopActivity extends AppCompatActivity {
             ivSegundoArtImage1.setImageDrawable(getDrawable(R.drawable.pulsera_fito));
 
         } else if (artista.equals("IZ*ONE")) {
+            mediaPlayer = MediaPlayer.create(this, R.raw.iz_one);
+
             ImageView encabezado = findViewById(R.id.encabezado);
             encabezado.setImageDrawable(getDrawable(R.drawable.encabezado_izone));
 
@@ -151,6 +183,8 @@ public class ShopActivity extends AppCompatActivity {
             ivSegundoArtImage1.setImageDrawable(getDrawable(R.drawable.llavero_izone));
 
         } else if (artista.equals("StrayKids")) {
+            mediaPlayer = MediaPlayer.create(this, R.raw.straykids);
+
             ImageView encabezado = findViewById(R.id.encabezado);
             encabezado.setImageDrawable(getDrawable(R.drawable.encabezado_straykids));
 
