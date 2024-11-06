@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -28,6 +29,7 @@ public class UploadProductActivity extends AppCompatActivity {
     private Spinner spinnerArtistas;
     private List<Artista> listaArtistas;
     private DatabaseHelper databaseHelper = new DatabaseHelper(this);
+    private ImageButton imgbtnSubirProducto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +53,16 @@ public class UploadProductActivity extends AppCompatActivity {
         spinnerArtistas = findViewById(R.id.spinnerArtistas);
         btnOriginal = findViewById(R.id.radioButtonOriginal);
         btnFanmade = findViewById(R.id.radioButtonFanmade);
+        imgbtnSubirProducto = findViewById(R.id.imgbtn_SubirProducto);
 
+        imgbtnSubirProducto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Create an Intent to open CameraActivity
+                Intent intent = new Intent(UploadProductActivity.this, CameraActivity.class);
+                startActivity(intent);
+            }
+        });
         // Configuración del listener para el botón de subir
         btnSubir.setOnClickListener(new View.OnClickListener() {
             @Override
