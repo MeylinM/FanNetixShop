@@ -1,5 +1,7 @@
 package com.example.fannetixshop;
 
+import static androidx.appcompat.content.res.AppCompatResources.getDrawable;
+
 import android.app.Activity;
 import android.view.View;
 import android.widget.ImageView;
@@ -27,6 +29,4 @@ public class ArticuloViewHolder extends RecyclerView.ViewHolder {
         descripcion.setText(articuloModel.getDescripcion());
         precio.setText(String.valueOf(articuloModel.getPrecio()));
     }
-
 }
-
