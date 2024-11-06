@@ -9,14 +9,19 @@
     <string name="text_passwd">CONTRASEÑA</string>
     <string name="btn_SigIn">Inicio Sesión</string>
 
-    <!-- Textos usados en la actividad nuevo producto -->
+    <!-- Textos usados en la actividad subir producto -->
+    <string name="tvTitulo">Subir Producto</string>
     <string name="infoTextUpdateResources">Subir fotos y videos</string>
     <string name="infoTextName">Nombre del Producto</string>
     <string name="infoTextDescription">Descripción</string>
     <string name="infoTextType">Tipo</string>
-    <string name="rbFanmade">Fanmade</string>
-    <string name="rbOriginal">Original</string>
+    <string name="rbFanmade">FANMADE</string>
+    <string name="rbOriginal">ORIGINAL</string>
+    <string name="infoTextArtist">Artista</string>
+    <string name="infoTextPrice">Precio</string>
     <string name="btnVolver">Volver</string>
+    <string name="sbContend">Desplázate para ver más imágenes o videos subidos</string>
+    <string name="btnUploadProduct">Subir</string>
 
     <!-- Opciones del spinner (artistas) -->
     <string name="spOpt1">Bruno Mars</string>
@@ -28,28 +33,8 @@
     <string name="spOpt7">Adele</string>
     <string name="spOpt8" >Fito</string>
 
-    <!-- Otros campos -->
-    <string name="infoTextPrice">Precio</string>
-    <string name="infoTextObs">Observaciones</string>
-    <string name="btnUpdate">Subir</string>
-
     <!-- Textos usados en los xml de la tienda-->
-    <string name="descripTshirt">Camiseta Born Pink Heart Globe Black</string>
     <string name="btnBuy">Comprar</string>
-    <string name="tvPriceTshirt">45.00€</string>
-    <string name="descripFunkos">Funko Pop! BLACKPINK Set de Pins</string>
-    <string name="tvPriceFunkos">25.00€</string>
     <string name="btnUpload">Subir Producto</string>
-    <string name="descripTshirtBruno">Camiseta Hey Don’t Make This Weird</string>
-    <string name="tvPriceTshirtBruno">65.95€</string>
-    <string name="hatBruno">Gorra Bruno Mars</string>
-    <string name="tvPrice">20.95€</string>
-    <string name="hoodieEminem">Sudadera TDOSS In Loving Memory</string>
-    <string name="tvPriceHoddieEminem">65.00€</string>
-    <string name="iphoneCaseEminem">Funda iPhone Paul Skit</string>
-    <string name="fitoTshirt">Camiseta Luminiscente “Huesos”</string>
-    <string name="tvPriceFitoTshirt">24.95€</string>
-    <string name="braceletFito">Pulsera "Cada vez cadáver"</string>
-    <string name="album">MAXIDENT (T-CRUSH ver.)</string>
-    <string name="plushie">Peluche Stray Kids</string>
+    <string name="horizontalScroll">Imagenes del articulo</string>
 </resources>
