@@ -37,4 +37,14 @@
     <string name="btnBuy">Buy</string>
     <string name="btnUpload">Upload Product</string>
     <string name="horizontalScroll">Product Images</string>
+
+    <!-- Texts used in the shopping cart -->
+    <string name="btnPay">Pay</string>
+    <string name="text_descripcion">Born Pink Heart Globe Black T-Shirt</string>
+    <string name="text_precio">45.00€</string>
+    <string name="text_descripcion2">Funko Pop! BLACKPINK Pin Set</string>
+    <string name="text_precio2">20.00€</string>
+    <string name="text_descripcion3">MAMAMOO OFFICIAL LIGHT STICK!</string>
+    <string name="text_precio3">50.00€</string>
+    <string name="text_precio_total">Total:</string>
 </resources>
