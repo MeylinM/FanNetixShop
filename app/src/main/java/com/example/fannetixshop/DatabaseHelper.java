@@ -213,7 +213,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         // Insertar el artículo en la tabla y obtener el ID del artículo creado
         long newRowId = db.insert("Articulos", null, values);
-
+        //ver si se agrega
+        Log.d("DatabaseHelper", "ID del artículo insertado: " + newRowId);
         // Cerrar la base de datos
         db.close();
 

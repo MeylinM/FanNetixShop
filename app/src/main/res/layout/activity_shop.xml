@@ -67,8 +67,6 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <!-- Camiseta Section -->
-
             <TextView
                 android:id="@+id/tvTipo"
                 android:layout_width="match_parent"
@@ -244,8 +242,18 @@
                     android:textSize="24sp" />
             </LinearLayout>
 
+            <!-- RecyclerView added here -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewArticulos"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toBottomOf="@id/encabezado"
+                app:layout_constraintBottom_toTopOf="@id/btnSubirProducto"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
         </LinearLayout>
     </ScrollView>
+
     <!-- Botón en la parte inferior -->
     <Button
         android:id="@+id/btnSubirProducto"
