@@ -19,12 +19,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Inicializar campos y botón
+        // Habilitar Edge to Edge
+        getWindow().getDecorView().setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+        );
+
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextPassword = findViewById(R.id.editTextEmail2);
         ImageButton imageBtnSignIn = findViewById(R.id.imageBtnSignIn);
 
-        // Inicializar la base de datos
         databaseHelper = new DatabaseHelper(this);
 
         // Configurar el listener para el botón de inicio de sesión
@@ -37,11 +42,10 @@ public class MainActivity extends AppCompatActivity {
 
                 // Verificar que el usuario exista y que la contraseña sea correcta
                 if (databaseHelper.validarUsuario(email, password)) {
-                    // Usuario válido, pasar a la siguiente actividad
                     Intent intent = new Intent(MainActivity.this, MenuArtistActivity.class);
                     startActivity(intent);
                 } else {
-                    // Mostrar mensaje de error si el usuario no es válido
+                    // Mostrar mensaje de error
                     Toast.makeText(MainActivity.this, "Error, usuario no encontrado", Toast.LENGTH_SHORT).show();
                 }
             }
