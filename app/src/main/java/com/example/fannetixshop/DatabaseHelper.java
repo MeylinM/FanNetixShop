@@ -38,7 +38,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + "id_archivo INTEGER PRIMARY KEY AUTOINCREMENT,"
             + "id_articulo INTEGER,"
             + "tipo TEXT," // 'imagen' o 'video'
-            + "url TEXT NOT NULL,"
+            + "path TEXT NOT NULL,"
             + "FOREIGN KEY (id_articulo) REFERENCES Articulos(id_articulo));";
 
     private static final String CREATE_TABLE_ARTICULOS_CARRITO = "CREATE TABLE ArticulosCarrito ("
@@ -119,6 +119,32 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         //ARTICULOS FITO
         db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio) VALUES (8, '“Huesos” Luminiscent T-shirt ', 'Camiseta sin usar del último concierto', 'Original', 24.95);");
         db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio) VALUES (8, '\"Cada vez cadáver\" Bracelet ', 'Pulsera de plata', 'Original', 40.00);");
+    }
+    private void insertarMultimediaPorDefecto(SQLiteDatabase db) {
+        //ARCHIVOS BRUNO MARS
+        db.execSQL("INSERT INTO ArchivosMultimedia (id_articulo,tipo, path) VALUES (1,'Imagen','camiseta_bruno');");
+        db.execSQL("INSERT INTO ArchivosMultimedia (id_articulo,tipo, path) VALUES (2,'Imagen','gorra_bruno');");
+        //ARCHIVOS BLACK PINK
+        db.execSQL("INSERT INTO ArchivosMultimedia (id_articulo,tipo, path) VALUES (3,'Imagen','camiseta');");
+        db.execSQL("INSERT INTO ArchivosMultimedia (id_articulo,tipo, path) VALUES (4,'Imagen','funkos');");
+        //ARCHIVOS EMINEM
+        db.execSQL("INSERT INTO ArchivosMultimedia (id_articulo,tipo, path) VALUES (5,'Imagen','sudadera_eminem');");
+        db.execSQL("INSERT INTO ArchivosMultimedia (id_articulo,tipo, path) VALUES (6,'Imagen','funda_eminem');");
+        //ARCHIVOS STRAYKIDS
+        db.execSQL("INSERT INTO ArchivosMultimedia (id_articulo,tipo, path) VALUES (7,'Imagen','album_straykids');");
+        db.execSQL("INSERT INTO ArchivosMultimedia (id_articulo,tipo, path) VALUES (8,'Imagen','peluche_straykids');");
+        //ARCHIVOS HARRY STYLES
+        db.execSQL("INSERT INTO ArchivosMultimedia (id_articulo,tipo, path) VALUES (9,'Imagen','camiseta_harry');");
+        db.execSQL("INSERT INTO ArchivosMultimedia (id_articulo,tipo, path) VALUES (10,'Imagen','llavero_harry');");
+        //ARCHIVOS IZ*ONE
+        db.execSQL("INSERT INTO ArchivosMultimedia (id_articulo,tipo, path) VALUES (11,'Imagen','camiseta_izone');");
+        db.execSQL("INSERT INTO ArchivosMultimedia (id_articulo,tipo, path) VALUES (12,'Imagen','llavero_izone');");
+        //ARCHIVOS ADELE
+        db.execSQL("INSERT INTO ArchivosMultimedia (id_articulo,tipo, path) VALUES (13,'Imagen','vinilo_adele');");
+        db.execSQL("INSERT INTO ArchivosMultimedia (id_articulo,tipo, path) VALUES (14,'Imagen','poster_adele');");
+        //ARCHIVOS FITO
+        db.execSQL("INSERT INTO ArchivosMultimedia (id_articulo,tipo, path) VALUES (15,'Imagen','camiseta_fito');");
+        db.execSQL("INSERT INTO ArchivosMultimedia (id_articulo,tipo, path) VALUES (16,'Imagen','pulsera_fito');");
     }
 
     public List<Articulo> obtenerArticulosPorArtista(String nombreArtista) {
@@ -220,6 +246,40 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         // Retornar true si la inserción fue exitosa, false de lo contrario
         return newRowId != -1;
+    }
+    public List<Multimedia> obtenerMultimediaPorArticulo(String nombreArtista) {
+        List<Multimedia> multimedia = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        // Asegúrate de que 'nombreArtista' no esté vacío o nulo
+        if (nombreArtista == null || nombreArtista.isEmpty()) {
+            return multimedia; // Devuelve una lista vacía si el nombre del artista es inválido
+        }
+
+        // Realizar la consulta
+        Cursor cursor = db.rawQuery("SELECT m.id_archivo, m.id_articulo, m.tipo, m.path " +
+                        "FROM ArchivosMultimedia m INNER JOIN Articulo ar ON m.id_articulo = ar.id_articulo INNER JOIN Artistas a ON ar.id_artista = a.id_artista WHERE a.nombre = ?",
+                new String[]{nombreArtista});
+
+        // Revisar si hay resultados
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                do {
+                    int id_archivo = cursor.getInt(cursor.getColumnIndexOrThrow("id_archivo"));
+                    int id_articulo = cursor.getInt(cursor.getColumnIndexOrThrow("id_articulo"));
+                    String tipo = cursor.getString(cursor.getColumnIndexOrThrow("tipo"));
+                    String path = cursor.getString(cursor.getColumnIndexOrThrow("path"));
+
+                    multimedia.add(new Multimedia(id_archivo,id_articulo, tipo, path));
+                } while (cursor.moveToNext());
+            } else {
+                Log.d("DatabaseHelper", "No se encontraron archivo multimedia para el artista: " + nombreArtista);
+            }
+            cursor.close();
+        } else {
+            Log.e("DatabaseHelper", "Cursor es nulo, error en la consulta");
+        }
+        return multimedia;
     }
 
 

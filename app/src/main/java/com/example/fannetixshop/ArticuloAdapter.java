@@ -12,9 +12,11 @@ import java.util.List;
 public class ArticuloAdapter extends RecyclerView.Adapter<ArticuloViewHolder> {
 
     private List<Articulo> articuloList;
+    //private List<Multimedia>multimediaList;
 
     public ArticuloAdapter(List<Articulo> articuloList) {
         this.articuloList = articuloList;
+        //this.multimediaList = multimediaList;
     }
 
     @NonNull
@@ -29,6 +31,9 @@ public class ArticuloAdapter extends RecyclerView.Adapter<ArticuloViewHolder> {
     public void onBindViewHolder(@NonNull ArticuloViewHolder holder, int position) {
         Articulo item = articuloList.get(position);
         holder.render(item);
+
+        //Multimedia multimedia = multimediaList.get(position);
+        //holder.renderMulti(multimedia);
     }
 
     @Override

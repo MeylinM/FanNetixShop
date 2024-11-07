@@ -37,6 +37,7 @@ public class ShopActivity extends AppCompatActivity {
             artista = extras.getString("Nombre");
         }
         List<Articulo> articulos = dbHelper.obtenerArticulosPorArtista(artista);
+        List<Multimedia> multimedia =dbHelper.obtenerMultimediaPorArticulo(artista);
 
         // Configurar el adaptador con la lista de artículos obtenida
         ArticuloAdapter adapter = new ArticuloAdapter(articulos);
