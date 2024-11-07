@@ -13,7 +13,7 @@ import java.util.List;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "FanNetixShop.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2; // Aumenta la versión de la base de datos para aplicar el cambio de estructura
 
     // SQL para crear las tablas
     private static final String CREATE_TABLE_USUARIOS = "CREATE TABLE Usuarios ("
@@ -32,14 +32,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + "descripcion TEXT,"
             + "tipo TEXT,"
             + "precio REAL NOT NULL,"
+            + "path TEXT,"  // Nuevo campo para la URL del archivo multimedia
             + "FOREIGN KEY (id_artista) REFERENCES Artistas(id_artista));";
-
-    private static final String CREATE_TABLE_ARCHIVOS_MULTIMEDIA = "CREATE TABLE ArchivosMultimedia ("
-            + "id_archivo INTEGER PRIMARY KEY AUTOINCREMENT,"
-            + "id_articulo INTEGER,"
-            + "tipo TEXT," // 'imagen' o 'video'
-            + "url TEXT NOT NULL,"
-            + "FOREIGN KEY (id_articulo) REFERENCES Articulos(id_articulo));";
 
     private static final String CREATE_TABLE_ARTICULOS_CARRITO = "CREATE TABLE ArticulosCarrito ("
             + "id INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -58,7 +52,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_TABLE_USUARIOS);
         db.execSQL(CREATE_TABLE_ARTISTAS);
         db.execSQL(CREATE_TABLE_ARTICULOS);
-        db.execSQL(CREATE_TABLE_ARCHIVOS_MULTIMEDIA);
         db.execSQL(CREATE_TABLE_ARTICULOS_CARRITO);
         insertarUsuario(db);
         insertarArtistas(db);
@@ -68,12 +61,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS ArticulosCarrito");
-        db.execSQL("DROP TABLE IF EXISTS ArchivosMultimedia");
         db.execSQL("DROP TABLE IF EXISTS Articulos");
         db.execSQL("DROP TABLE IF EXISTS Artistas");
         db.execSQL("DROP TABLE IF EXISTS Usuarios");
         onCreate(db);
     }
+
 
     private void insertarUsuario(SQLiteDatabase db){
         db.execSQL("INSERT INTO Usuarios (email, passwd) VALUES ('admin@gmail.com', 'abcd*1234');");
@@ -210,6 +203,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put("descripcion", articulo.getDescripcion());
         values.put("tipo", articulo.getTipo().toString()); // Convierte el tipo a String
         values.put("precio", articulo.getPrecio());
+        values.put("path", articulo.getPath());
 
         // Insertar el artículo en la tabla y obtener el ID del artículo creado
         long newRowId = db.insert("Articulos", null, values);

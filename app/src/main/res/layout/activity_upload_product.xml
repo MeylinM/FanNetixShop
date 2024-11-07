@@ -68,7 +68,7 @@
         android:id="@+id/subirContenido"
         android:layout_width="318dp"
         android:layout_height="154dp"
-        android:layout_marginTop="132dp"
+        android:layout_marginTop="152dp"
         android:background="#66F96053"
         android:gravity="center"
         android:orientation="vertical"
@@ -97,44 +97,14 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/contenidoSubido"
-        android:layout_width="318dp"
-        android:layout_height="78dp"
-        android:layout_marginTop="290dp"
-        android:background="#66F96053"
-        android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <HorizontalScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:contentDescription="@string/sbContend"
-            android:fillViewport="true"
-            android:scrollbars="horizontal">
-
-            <LinearLayout
-                android:id="@+id/mediaContainer"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-                <!-- Aquí se agregarán dinámicamente las imágenes o videos -->
-            </LinearLayout>
-
-        </HorizontalScrollView>
-    </LinearLayout>
-
-    <LinearLayout
         android:id="@+id/infoProducto"
-        android:layout_width="316dp"
-        android:layout_height="311dp"
-        android:layout_marginTop="375dp"
+        android:layout_width="314dp"
+        android:layout_height="362dp"
+        android:layout_marginTop="324dp"
         android:background="#66F96053"
-        android:gravity="center"
+        android:gravity="top"
         android:orientation="vertical"
+        android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
@@ -146,7 +116,7 @@
             android:layout_height="wrap_content"
             android:text="@string/infoTextName"
             android:textColor="#FFFFFF "
-            android:textSize="15sp"
+            android:textSize="17sp"
             android:textStyle="bold" />
 
         <EditText
@@ -164,7 +134,7 @@
             android:text="@string/infoTextDescription"
             android:textAlignment="viewStart"
             android:textColor="#FFFFFF "
-            android:textSize="15sp"
+            android:textSize="17sp"
             android:textStyle="bold" />
 
         <EditText
@@ -181,7 +151,7 @@
             android:text="@string/infoTextType"
             android:textAlignment="viewStart"
             android:textColor="#FFFFFF "
-            android:textSize="15sp"
+            android:textSize="17sp"
             android:textStyle="bold" />
 
         <RadioGroup
@@ -190,27 +160,27 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-                <RadioButton
-                    android:id="@+id/radioButtonOriginal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="@string/rbOriginal"
-                    android:textSize="10sp" />
+            <RadioButton
+                android:id="@+id/radioButtonOriginal"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/rbOriginal"
+                android:textSize="10sp" />
 
-                <RadioButton
-                    android:id="@+id/radioButtonFanmade"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/rbFanmade"
-                    android:textSize="10sp" />
+            <RadioButton
+                android:id="@+id/radioButtonFanmade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/rbFanmade"
+                android:textSize="10sp" />
 
         </RadioGroup>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="52dp"
+            android:layout_height="60dp"
             android:orientation="horizontal">
 
             <TextView
@@ -220,18 +190,19 @@
                 android:text="@string/infoTextArtist"
                 android:textAlignment="viewStart"
                 android:textColor="#FFFFFF "
-                android:textSize="15sp"
+                android:textSize="17sp"
                 android:textStyle="bold" />
 
             <Spinner
                 android:id="@+id/spinnerArtistas"
-                android:layout_width="270dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="60dp"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <TextView
@@ -241,16 +212,16 @@
                 android:text="@string/infoTextPrice"
                 android:textAlignment="viewStart"
                 android:textColor="#FFFFFF "
-                android:textSize="15sp"
+                android:textSize="17sp"
                 android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/etPrecio"
-                android:layout_width="258dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="@string/infoTextPrice"
                 android:inputType="numberDecimal"
-                android:textSize="8sp" />
+                android:textSize="17sp" />
         </LinearLayout>
 
     </LinearLayout>
