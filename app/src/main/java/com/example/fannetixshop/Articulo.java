@@ -18,11 +18,12 @@ public class Articulo {
         this.path = path;
     }
 
-    public Articulo(String titulo, String descripcion, Tipo tipo, double precio) {
+    public Articulo(String titulo, String descripcion, Tipo tipo, double precio, String path) {
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.tipo = tipo;
         this.precio = precio; // Precio del artículo
+        this.path = path;
     }
 
     // Getters

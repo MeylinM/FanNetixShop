@@ -13,7 +13,7 @@ import java.util.List;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "FanNetixShop.db";
-    private static final int DATABASE_VERSION = 2; // Aumenta la versión de la base de datos para aplicar el cambio de estructura
+    private static final int DATABASE_VERSION = 3; // Aumenta la versión de la base de datos para aplicar el cambio de estructura
 
     // SQL para crear las tablas
     private static final String CREATE_TABLE_USUARIOS = "CREATE TABLE Usuarios ("
@@ -58,6 +58,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         insertarArticulos(db);
     }
 
+    public void deleteDatabase(Context context) {
+        // Elimina el archivo de la base de datos
+        context.deleteDatabase(DATABASE_NAME);
+        // Vuelve a crear la base de datos
+        this.getWritableDatabase(); // Esto provocará que se ejecute el método onCreate y recree las tablas
+    }
+
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS ArticulosCarrito");
@@ -89,30 +96,31 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private void insertarArticulos(SQLiteDatabase db) {
         //ARTICULOS BRUNO MARS
-        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio) VALUES (1, 'Hey Don’t Make This Weird Tee', 'Camiseta nueva, sin usar.', 'Original', 65.95);");
-        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio) VALUES (1, 'Bruno Mars Hat', 'Poco usado, como nuevo.', 'Original', 25.00);");
+        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio, path) VALUES (1, 'Hey Don’t Make This Weird Tee', 'Camiseta nueva, sin usar.', 'Original', 65.95, 'drawable/camiseta_bruno');");
+        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio, path) VALUES (1, 'Bruno Mars Hat', 'Poco usado, como nuevo.', 'Original', 25.00, 'drawable/gorra_bruno');");
         //ARTICULOS BLACK PINK
-        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio) VALUES (2, 'Born Pink Hear Globe Black T-Shirt', 'Camiseta nueva, sin usar.', 'Original', 45.00);");
-        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio) VALUES (2, 'Funko Pop! BLACKPINK Pin Set', 'Sin abrir', 'Original', 30.50);");
+        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio, path) VALUES (2, 'Born Pink Hear Globe Black T-Shirt', 'Camiseta nueva, sin usar.', 'Original', 45.00, 'drawable/camiseta_blackpink');");
+        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio, path) VALUES (2, 'Funko Pop! BLACKPINK Pin Set', 'Sin abrir', 'Original', 30.50, 'drawable/funkos');");
         //ARTICULOS EMINEM
-        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio) VALUES (3, 'TDOSS In Loving Memory Hoodie', 'Sin usar', 'Original', 65.00);");
-        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio) VALUES (3, 'Paul Skit iPhone Case', 'Nuevo', 'Original', 27.00);");
+        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio, path) VALUES (3, 'TDOSS In Loving Memory Hoodie', 'Sin usar', 'Original', 65.00, 'drawable/sudadera_eminem');");
+        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio, path) VALUES (3, 'Paul Skit iPhone Case', 'Nuevo', 'Original', 27.00, 'drawable/funda_eminem');");
         //ARTICULOS STRAYKIDS
-        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio) VALUES (4, 'MAXIDENT (T-CRUSH ver.)', 'Sin abrir', 'Original', 45.00);");
-        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio) VALUES (4, 'Stray Kids Plushie', 'Peluche de Bang Chan', 'Original', 20.00);");
+        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio, path) VALUES (4, 'MAXIDENT (T-CRUSH ver.)', 'Sin abrir', 'Original', 45.00, 'drawable/album_straykids');");
+        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio, path) VALUES (4, 'Stray Kids Plushie', 'Peluche de Bang Chan', 'Original', 20.00, 'drawable/peluche_straykids');");
         //ARTICULOS HARRY STYLES
-        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio) VALUES (5, 'Rainbow Event Tee', 'Tour de Munich', 'Original', 30.00);");
-        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio) VALUES (5, 'TPWK Logo Keychain', 'Llavero nuevo', 'Fanmade', 25.00);");
+        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio, path) VALUES (5, 'Rainbow Event Tee', 'Tour de Munich', 'Original', 30.00, 'drawable/camiseta_harry');");
+        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio, path) VALUES (5, 'TPWK Logo Keychain', 'Llavero nuevo', 'Fanmade', 25.00, 'drawable/llavero_harry');");
         //ARTICULOS IZ*ONE
-        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio) VALUES (6, 'T-Shirt Iz*One EYES ON ME', 'Camiseta original', 'Original', 29.99);");
-        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio) VALUES (6, 'Iz*One  Keychain', 'Llavero echo de resina con accesorios', 'Fanmade', 10.50);");
+        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio, path) VALUES (6, 'T-Shirt Iz*One EYES ON ME', 'Camiseta original', 'Original', 29.99, 'drawable/camiseta_izone');");
+        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio, path) VALUES (6, 'Iz*One Keychain', 'Llavero hecho de resina con accesorios', 'Fanmade', 10.50, 'drawable/llavero_izone');");
         //ARTICULOS ADELE
-        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio) VALUES (7, '30 (Double Vinyl)', 'Vinilo de Adele sin usar', 'Original', 30.00);");
-        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio) VALUES (7, 'Adele poster', 'Poster oficial de Adele', 'Fanmade', 7.00);");
+        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio, path) VALUES (7, '30 (Double Vinyl)', 'Vinilo de Adele sin usar', 'Original', 30.00, 'drawable/vinilo_adele');");
+        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio, path) VALUES (7, 'Adele poster', 'Poster oficial de Adele', 'Fanmade', 7.00, 'drawable/poster_adele');");
         //ARTICULOS FITO
-        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio) VALUES (8, '“Huesos” Luminiscent T-shirt ', 'Camiseta sin usar del último concierto', 'Original', 24.95);");
-        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio) VALUES (8, '\"Cada vez cadáver\" Bracelet ', 'Pulsera de plata', 'Original', 40.00);");
+        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio, path) VALUES (8, '“Huesos” Luminiscent T-shirt', 'Camiseta sin usar del último concierto', 'Original', 24.95, 'drawable/camiseta_fito');");
+        db.execSQL("INSERT INTO Articulos (id_artista, titulo, descripcion, tipo, precio, path) VALUES (8, '\"Cada vez cadáver\" Bracelet', 'Pulsera de plata', 'Original', 40.00, 'drawable/pulsera_fito');");
     }
+
 
     public List<Articulo> obtenerArticulosPorArtista(String nombreArtista) {
         List<Articulo> articulos = new ArrayList<>();
@@ -124,7 +132,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
 
         // Realizar la consulta
-        Cursor cursor = db.rawQuery("SELECT a.titulo, a.descripcion, a.tipo, a.precio " +
+        Cursor cursor = db.rawQuery("SELECT a.titulo, a.descripcion, a.tipo, a.precio, a.path " +
                         "FROM Articulos a INNER JOIN Artistas ar ON a.id_artista = ar.id_artista WHERE ar.nombre = ?",
                 new String[]{nombreArtista});
 
@@ -146,8 +154,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     }
 
                     double precio = cursor.getDouble(cursor.getColumnIndexOrThrow("precio"));
-
-                    articulos.add(new Articulo(titulo, descripcion, tipo, precio));
+                    String path = cursor.getString(cursor.getColumnIndexOrThrow("path"));
+                    articulos.add(new Articulo(titulo, descripcion, tipo, precio, path));
                 } while (cursor.moveToNext());
             } else {
                 Log.d("DatabaseHelper", "No se encontraron artículos para el artista: " + nombreArtista);
@@ -196,24 +204,28 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public boolean crearArticulo(Articulo articulo) {
         SQLiteDatabase db = this.getWritableDatabase();
-        // Crear un ContentValues para almacenar los valores del artículo
         ContentValues values = new ContentValues();
-        values.put("id_artista", articulo.getIdArtista()); // Asegúrate de que el método getIdArtista() exista en la clase Articulo
-        values.put("titulo", articulo.getTitulo());
-        values.put("descripcion", articulo.getDescripcion());
-        values.put("tipo", articulo.getTipo().toString()); // Convierte el tipo a String
-        values.put("precio", articulo.getPrecio());
-        values.put("path", articulo.getPath());
 
-        // Insertar el artículo en la tabla y obtener el ID del artículo creado
-        long newRowId = db.insert("Articulos", null, values);
+        // Asegúrate de que el artículo no sea nulo
+        if (articulo != null) {
+            // Coloca los valores en el ContentValues
+            values.put("id_artista", articulo.getIdArtista()); // El ID del artista debe ser un valor entero
+            values.put("titulo", articulo.getTitulo()); // Título del artículo
+            values.put("descripcion", articulo.getDescripcion()); // Descripción del artículo
+            values.put("tipo", articulo.getTipo().toString()); // Tipo, convertido a String
+            values.put("precio", articulo.getPrecio()); // Precio como número decimal
+            values.put("path", articulo.getPath()); // Ruta de la imagen o multimedia
 
-        // Cerrar la base de datos
-        db.close();
+            // Intentar insertar el artículo en la tabla Articulos
+            long result = db.insert("Articulos", null, values);
 
-        // Retornar true si la inserción fue exitosa, false de lo contrario
-        return newRowId != -1;
+            // Si result es mayor que -1, la inserción fue exitosa
+            return result != -1;
+        }
+
+        return false; // Si el artículo es nulo, no insertar
     }
+
 
 
 
