@@ -21,6 +21,8 @@ public class ShopActivity extends AppCompatActivity {
     private ImageView volver, carrito, btnPlay;
     private Button btnSubirProducto;
     private MediaPlayer mediaPlayer;
+    private RecyclerView recyclerView;
+    private ArticuloAdapter articuloAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +76,12 @@ public class ShopActivity extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         String artista = extras.getString("Nombre");
         articulos = dbHelper.obtenerArticulosPorArtista(artista);
+
+        // Inicializar RecyclerView
+        recyclerView = findViewById(R.id.recyclerViewArticulos);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        articuloAdapter = new ArticuloAdapter(this, articulos.subList(2, articulos.size())); // Excluimos los dos primeros artículos
+        recyclerView.setAdapter(articuloAdapter);
 
         //Poner las imagenes por defecto correspondientes al artista
         if (artista.equals("BlackPink")){
