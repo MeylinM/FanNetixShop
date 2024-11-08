@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -32,9 +33,10 @@ public class UploadProductActivity extends AppCompatActivity {
     private Spinner spinnerArtistas;
     private List<Artista> listaArtistas;
     private DatabaseHelper databaseHelper = new DatabaseHelper(this);
-    private ImageButton imgbtnSubirProducto;
+    private ImageButton imgbtnSubirProducto, imgbtn_volver;
     private ActivityResultLauncher<Intent> cameraActivityResultLauncher;
     private String imagePath = "";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +61,15 @@ public class UploadProductActivity extends AppCompatActivity {
         btnOriginal = findViewById(R.id.radioButtonOriginal);
         btnFanmade = findViewById(R.id.radioButtonFanmade);
         imgbtnSubirProducto = findViewById(R.id.imgbtn_SubirProducto);
+        imgbtn_volver = findViewById(R.id.imgbtn_volver);
+
+        imgbtn_volver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UploadProductActivity.this, MenuArtistActivity.class);
+                startActivity(intent);
+            }
+        });
 
         // Registrar el ActivityResultLauncher
         cameraActivityResultLauncher = registerForActivityResult(

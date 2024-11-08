@@ -16,6 +16,7 @@ import androidx.core.view.WindowInsetsCompat;
 public class MenuArtistActivity extends AppCompatActivity {
 
     private ImageButton btnBlack, btnAdele, btnEminem, btnBruno, btnHarry, btnFito, btnIZ, btnStray;
+    private Button btnSubirProducto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,6 +99,14 @@ public class MenuArtistActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MenuArtistActivity.this, ShopActivity.class);
                 intent.putExtra("Nombre", "StrayKids");
+                startActivity(intent);
+            }
+        });
+        btnSubirProducto = (Button) findViewById(R.id.btnSubirProducto);
+        btnSubirProducto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MenuArtistActivity.this, UploadProductActivity.class);
                 startActivity(intent);
             }
         });

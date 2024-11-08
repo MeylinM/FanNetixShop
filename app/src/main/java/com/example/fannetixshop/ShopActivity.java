@@ -49,15 +49,7 @@ public class ShopActivity extends AppCompatActivity {
                 mediaPlayer.pause();
             }
         });
-        btnSubirProducto = (Button) findViewById(R.id.btnSubirProducto);
-        btnSubirProducto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ShopActivity.this, UploadProductActivity.class);
-                startActivity(intent);
-                mediaPlayer.pause();
-            }
-        });
+
         btnPlay = (ImageView) findViewById(R.id.btnPlay);
         btnPlay.setOnClickListener(new View.OnClickListener() {
             @Override

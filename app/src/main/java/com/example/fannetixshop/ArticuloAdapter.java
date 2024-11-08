@@ -34,16 +34,15 @@ public class ArticuloAdapter extends RecyclerView.Adapter<ArticuloAdapter.Articu
     @Override
     public void onBindViewHolder(ArticuloViewHolder holder, int position) {
         Articulo articulo = articulos.get(position);
+        holder.tvTipo.setText(articulo.getTipo().name());
         holder.tvTitulo.setText(articulo.getTitulo());
         holder.tvDescripcion.setText(articulo.getDescripcion());
-        holder.tvPrecio.setText(String.valueOf(articulo.getPrecio()));
+        holder.tvPrecio.setText(String.valueOf(String.format("%.2f", articulo.getPrecio()))+"€");
         String path = articulo.getPath();
         if (path.startsWith("drawable/")) {
             // Si el path es algo como "drawable/mi_imagen"
-            String resourceName = path.substring("drawable/".length());  // 'mi_imagen'
-            Log.d("ArticuloAdapter", "Resource name: " + resourceName);
+            String resourceName = path.substring("drawable/".length());
             int resourceId = context.getResources().getIdentifier(resourceName, "drawable", context.getPackageName());
-            Log.d("ArticuloAdapter", "Resource ID: " + resourceId);
             if (resourceId != 0) {
                 holder.ivArticulo.setImageResource(resourceId);  // Establecer la imagen
             } else {
@@ -52,9 +51,6 @@ public class ArticuloAdapter extends RecyclerView.Adapter<ArticuloAdapter.Articu
         } else{
             holder.ivArticulo.setImageURI(Uri.parse(path));
         }
-
-        // Cargar la imagen desde el path utilizando URI
-        //holder.ivArticulo.setImageResource(R.drawable.default_image); // Imagen predeterminada si no se encuentra el archivo
 
     }
 
@@ -65,11 +61,12 @@ public class ArticuloAdapter extends RecyclerView.Adapter<ArticuloAdapter.Articu
     }
 
     public static class ArticuloViewHolder extends RecyclerView.ViewHolder {
-        TextView tvTitulo, tvDescripcion, tvPrecio;
+        TextView tvTitulo, tvDescripcion, tvPrecio, tvTipo;
         ImageView ivArticulo;
 
         public ArticuloViewHolder(View itemView) {
             super(itemView);
+            tvTipo = itemView.findViewById(R.id.tvTipo);
             tvTitulo = itemView.findViewById(R.id.tvTitulo);
             tvDescripcion = itemView.findViewById(R.id.tvDescripcion);
             tvPrecio = itemView.findViewById(R.id.tvPrecio);
