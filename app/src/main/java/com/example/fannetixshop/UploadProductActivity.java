@@ -1,6 +1,7 @@
 package com.example.fannetixshop;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -13,6 +14,8 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -30,6 +33,8 @@ public class UploadProductActivity extends AppCompatActivity {
     private List<Artista> listaArtistas;
     private DatabaseHelper databaseHelper = new DatabaseHelper(this);
     private ImageButton imgbtnSubirProducto;
+    private ActivityResultLauncher<Intent> cameraActivityResultLauncher;
+    private String imagePath = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,12 +60,28 @@ public class UploadProductActivity extends AppCompatActivity {
         btnFanmade = findViewById(R.id.radioButtonFanmade);
         imgbtnSubirProducto = findViewById(R.id.imgbtn_SubirProducto);
 
+        // Registrar el ActivityResultLauncher
+        cameraActivityResultLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+                    if (result.getResultCode() == RESULT_OK) {
+                        // Obtener el path de la imagen
+                        Intent data = result.getData();
+                        if (data != null) {
+                            imagePath = data.getStringExtra("imagePath");
+                            if (imagePath != null) {
+                                // Actualizar el ImageButton con la imagen capturada
+                                imgbtnSubirProducto.setImageURI(Uri.parse(imagePath));
+                            }
+                        }
+                    }
+                });
         imgbtnSubirProducto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Create an Intent to open CameraActivity
                 Intent intent = new Intent(UploadProductActivity.this, CameraActivity.class);
-                startActivity(intent);
+                // Usar el launcher para iniciar la actividad
+                cameraActivityResultLauncher.launch(intent);
             }
         });
         // Configuración del listener para el botón de subir
@@ -118,6 +139,11 @@ public class UploadProductActivity extends AppCompatActivity {
             return;
         }
 
+        if (imagePath.isEmpty()) {
+            Toast.makeText(this, "Por favor, captura una foto del producto", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         int selectedRadioButtonId = rgTipo.getCheckedRadioButtonId();
         Tipo tipo = Tipo.FANMADE; // Valor predeterminado
 
@@ -131,9 +157,9 @@ public class UploadProductActivity extends AppCompatActivity {
         }
 
 
-        int idArtista = obtenerIdArtistaSeleccionado(); // Método que ya tienes en tu actividad
+        int idArtista = obtenerIdArtistaSeleccionado();
 
-        Articulo articulo = new Articulo(titulo, descripcion, tipo, precio, idArtista);
+        Articulo articulo = new Articulo(titulo, descripcion, tipo, precio, idArtista, imagePath);
         if(databaseHelper.crearArticulo(articulo)){
             // Mostrar un mensaje de confirmación
             Toast.makeText(this, "Artículo creado: " + articulo.getTitulo(), Toast.LENGTH_SHORT).show();
@@ -142,7 +168,7 @@ public class UploadProductActivity extends AppCompatActivity {
 
         }else{
             // Mostrar un mensaje de confirmación
-            Toast.makeText(this, "YA ME JODERIA ", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "No se ha podido crear el articulo ", Toast.LENGTH_SHORT).show();
         }
 
     }

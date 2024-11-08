@@ -1,63 +1,79 @@
 package com.example.fannetixshop;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.io.File;
 import java.util.List;
 
 public class ArticuloAdapter extends RecyclerView.Adapter<ArticuloAdapter.ArticuloViewHolder> {
-    private List<Articulo> listaArticulos;
+    private List<Articulo> articulos;
     private Context context;
 
-    // Constructor
-    public ArticuloAdapter(Context context, List<Articulo> listaArticulos) {
+    public ArticuloAdapter(Context context, List<Articulo> articulos) {
         this.context = context;
-        this.listaArticulos = listaArticulos;
+        this.articulos = articulos;
     }
 
-    @NonNull
     @Override
-    public ArticuloViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.articulo_agregado, parent, false);
+    public ArticuloViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(context).inflate(R.layout.item, parent, false);
         return new ArticuloViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ArticuloViewHolder holder, int position) {
-        Articulo articulo = listaArticulos.get(position);
-
-        // Asignamos los valores a los elementos del layout
-        holder.tvTipo.setText(articulo.getTipo().name());
+    public void onBindViewHolder(ArticuloViewHolder holder, int position) {
+        Articulo articulo = articulos.get(position);
         holder.tvTitulo.setText(articulo.getTitulo());
         holder.tvDescripcion.setText(articulo.getDescripcion());
         holder.tvPrecio.setText(String.valueOf(articulo.getPrecio()));
+        String path = articulo.getPath();
+        if (path.startsWith("drawable/")) {
+            // Si el path es algo como "drawable/mi_imagen"
+            String resourceName = path.substring("drawable/".length());  // 'mi_imagen'
+            Log.d("ArticuloAdapter", "Resource name: " + resourceName);
+            int resourceId = context.getResources().getIdentifier(resourceName, "drawable", context.getPackageName());
+            Log.d("ArticuloAdapter", "Resource ID: " + resourceId);
+            if (resourceId != 0) {
+                holder.ivArticulo.setImageResource(resourceId);  // Establecer la imagen
+            } else {
+                holder.ivArticulo.setImageResource(R.drawable.default_image);  // Imagen por defecto si no se encuentra el recurso
+            }
+        } else{
+            holder.ivArticulo.setImageURI(Uri.parse(path));
+        }
+
+        // Cargar la imagen desde el path utilizando URI
+        //holder.ivArticulo.setImageResource(R.drawable.default_image); // Imagen predeterminada si no se encuentra el archivo
+
     }
+
 
     @Override
     public int getItemCount() {
-        return listaArticulos.size();
+        return articulos.size();
     }
 
-    // ViewHolder para los elementos de la lista
     public static class ArticuloViewHolder extends RecyclerView.ViewHolder {
-        TextView tvTipo, tvTitulo, tvDescripcion, tvPrecio;
-        ImageView ivImagen;
+        TextView tvTitulo, tvDescripcion, tvPrecio;
+        ImageView ivArticulo;
 
         public ArticuloViewHolder(View itemView) {
             super(itemView);
-            tvTipo = itemView.findViewById(R.id.tvTipo);
             tvTitulo = itemView.findViewById(R.id.tvTitulo);
             tvDescripcion = itemView.findViewById(R.id.tvDescripcion);
-            tvPrecio = itemView.findViewById(R.id.tvPrecioArt);
-            ivImagen = itemView.findViewById(R.id.ivArtImage1);
+            tvPrecio = itemView.findViewById(R.id.tvPrecio);
+            ivArticulo = itemView.findViewById(R.id.ivArticulo);
         }
     }
 }
-
