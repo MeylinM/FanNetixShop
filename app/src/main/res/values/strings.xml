@@ -31,10 +31,20 @@
     <string name="spOpt5">Harry Styles</string>
     <string name="spOpt6">IZ*ONE</string>
     <string name="spOpt7">Adele</string>
-    <string name="spOpt8" >Fito</string>
+    <string name="spOpt8">Fito</string>
 
     <!-- Textos usados en los xml de la tienda-->
     <string name="btnBuy">Comprar</string>
     <string name="btnUpload">Subir Producto</string>
     <string name="horizontalScroll">Imagenes del articulo</string>
+
+    <!-- Textos usados en el carrito de la compra -->
+    <string name="btnPay">Pagar</string>
+    <string name="text_descripcion">Born Pink Heart Globe Black T-Shirt</string>
+    <string name="text_precio">45.00€</string>
+    <string name="text_descripcion2">Funko Pop! BLACKPINK Pin Set</string>
+    <string name="text_precio2">20.00€</string>
+    <string name="text_descripcion3">MAMAMOO OFFICIAL LIGHT STICK!</string>
+    <string name="text_precio3">50.00€</string>
+    <string name="text_precio_total">Total:</string>
 </resources>

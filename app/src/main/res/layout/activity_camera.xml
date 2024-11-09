@@ -65,3 +65,16 @@
         android:src="@drawable/check"
         android:visibility="gone"/>
 </RelativeLayout>
+
+    <ImageButton
+        android:id="@+id/checkButton"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:contentDescription="Check"
+        android:src="@drawable/check"
+        android:visibility="gone"/>
+</RelativeLayout>
