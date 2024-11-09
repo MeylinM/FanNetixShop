@@ -1,6 +1,7 @@
 package com.example.fannetixshop;
 
 public class Articulo {
+    private int id;
     private String titulo;
     private String descripcion;
     private Tipo tipo; // 'fanmade' o 'original'
@@ -19,6 +20,15 @@ public class Articulo {
     }
 
     public Articulo(String titulo, String descripcion, Tipo tipo, double precio, String path) {
+        this.titulo = titulo;
+        this.descripcion = descripcion;
+        this.tipo = tipo;
+        this.precio = precio; // Precio del artículo
+        this.path = path;
+    }
+
+    public Articulo(int id, String titulo, String descripcion, Tipo tipo, double precio, String path) {
+        this.id = id;
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.tipo = tipo;
@@ -57,5 +67,13 @@ public class Articulo {
     // Setter
     public void setIdArtista(int idArtista) {
         this.idArtista = idArtista;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

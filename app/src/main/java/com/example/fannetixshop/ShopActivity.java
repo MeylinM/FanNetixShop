@@ -5,9 +5,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -19,7 +17,6 @@ public class ShopActivity extends AppCompatActivity {
     private DatabaseHelper dbHelper = new DatabaseHelper(this);
     private List<Articulo> articulos;
     private ImageView volver, carrito, btnPlay;
-    private Button btnSubirProducto;
     private MediaPlayer mediaPlayer;
     private RecyclerView recyclerView;
     private ArticuloAdapter articuloAdapter;
@@ -29,8 +26,7 @@ public class ShopActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop);
 
-
-
+        //Listeners
         volver = (ImageView) findViewById(R.id.volver);
         volver.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,77 +62,79 @@ public class ShopActivity extends AppCompatActivity {
 
         // Obtener los artículos del artista
         Bundle extras = getIntent().getExtras();
-        String artista = extras.getString("Nombre");
+        String artista = null;
+        if (extras != null) {
+            artista = extras.getString("Nombre");
+        }
         articulos = dbHelper.obtenerArticulosPorArtista(artista);
 
         // Inicializar RecyclerView
         recyclerView = findViewById(R.id.recyclerViewArticulos);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        articuloAdapter = new ArticuloAdapter(this, articulos.subList(2, articulos.size())); // Excluimos los dos primeros artículos
+        articuloAdapter = new ArticuloAdapter(this, articulos.subList(2, articulos.size()), dbHelper); // Excluimos los dos primeros artículos
         recyclerView.setAdapter(articuloAdapter);
 
-        //Poner las imagenes por defecto correspondientes al artista
-        if (artista.equals("BlackPink")){
-            mediaPlayer = MediaPlayer.create(this, R.raw.blackpink);
-
-            ImageView encabezado = findViewById(R.id.encabezado);
-            encabezado.setImageDrawable(getDrawable(R.drawable.encabezado));
-
-
-        } else if (artista.equals("Adele")) {
-            mediaPlayer = MediaPlayer.create(this, R.raw.adele);
-
-            ImageView encabezado = findViewById(R.id.encabezado);
-            encabezado.setImageDrawable(getDrawable(R.drawable.encabezado_adele));
-
-
-        } else if (artista.equals("Eminem")) {
-            mediaPlayer = MediaPlayer.create(this, R.raw.eminem);
-
-            ImageView encabezado = findViewById(R.id.encabezado);
-            encabezado.setImageDrawable(getDrawable(R.drawable.encabezado_eminem));
-
-
-        } else if (artista.equals("Bruno Mars")) {
-            mediaPlayer = MediaPlayer.create(this, R.raw.bruno_mars);
-
-            ImageView encabezado = findViewById(R.id.encabezado);
-            encabezado.setImageDrawable(getDrawable(R.drawable.encabezado_bruno));
-
-
-        } else if (artista.equals("Harry Styles")) {
-            mediaPlayer = MediaPlayer.create(this, R.raw.harry_styles);
-
-            ImageView encabezado = findViewById(R.id.encabezado);
-            encabezado.setImageDrawable(getDrawable(R.drawable.encabezado_harry));
-
-        } else if (artista.equals("Fito")) {
-            mediaPlayer = MediaPlayer.create(this, R.raw.fito);
-
-            ImageView encabezado = findViewById(R.id.encabezado);
-            encabezado.setImageDrawable(getDrawable(R.drawable.encabezado_fito));
-
-
-        } else if (artista.equals("IZ*ONE")) {
-            mediaPlayer = MediaPlayer.create(this, R.raw.iz_one);
-
-            ImageView encabezado = findViewById(R.id.encabezado);
-            encabezado.setImageDrawable(getDrawable(R.drawable.encabezado_izone));
-
-        } else if (artista.equals("StrayKids")) {
-            mediaPlayer = MediaPlayer.create(this, R.raw.straykids);
-
-            ImageView encabezado = findViewById(R.id.encabezado);
-            encabezado.setImageDrawable(getDrawable(R.drawable.encabezado_straykids));
-
-        } else {
-            Log.d("ArtistaCheck", "El artista no es existe");
+        //Poner las imagenes + musica por defecto correspondientes al artista
+        if (artista != null) {
+            switch (artista) {
+                case "BlackPink": {
+                    mediaPlayer = MediaPlayer.create(this, R.raw.blackpink);
+                    ImageView encabezado = findViewById(R.id.encabezado);
+                    encabezado.setImageDrawable(getDrawable(R.drawable.encabezado));
+                    break;
+                }
+                case "Adele": {
+                    mediaPlayer = MediaPlayer.create(this, R.raw.adele);
+                    ImageView encabezado = findViewById(R.id.encabezado);
+                    encabezado.setImageDrawable(getDrawable(R.drawable.encabezado_adele));
+                    break;
+                }
+                case "Eminem": {
+                    mediaPlayer = MediaPlayer.create(this, R.raw.eminem);
+                    ImageView encabezado = findViewById(R.id.encabezado);
+                    encabezado.setImageDrawable(getDrawable(R.drawable.encabezado_eminem));
+                    break;
+                }
+                case "Bruno Mars": {
+                    mediaPlayer = MediaPlayer.create(this, R.raw.bruno_mars);
+                    ImageView encabezado = findViewById(R.id.encabezado);
+                    encabezado.setImageDrawable(getDrawable(R.drawable.encabezado_bruno));
+                    break;
+                }
+                case "Harry Styles": {
+                    mediaPlayer = MediaPlayer.create(this, R.raw.harry_styles);
+                    ImageView encabezado = findViewById(R.id.encabezado);
+                    encabezado.setImageDrawable(getDrawable(R.drawable.encabezado_harry));
+                    break;
+                }
+                case "Fito": {
+                    mediaPlayer = MediaPlayer.create(this, R.raw.fito);
+                    ImageView encabezado = findViewById(R.id.encabezado);
+                    encabezado.setImageDrawable(getDrawable(R.drawable.encabezado_fito));
+                    break;
+                }
+                case "IZ*ONE": {
+                    mediaPlayer = MediaPlayer.create(this, R.raw.iz_one);
+                    ImageView encabezado = findViewById(R.id.encabezado);
+                    encabezado.setImageDrawable(getDrawable(R.drawable.encabezado_izone));
+                    break;
+                }
+                case "StrayKids": {
+                    mediaPlayer = MediaPlayer.create(this, R.raw.straykids);
+                    ImageView encabezado = findViewById(R.id.encabezado);
+                    encabezado.setImageDrawable(getDrawable(R.drawable.encabezado_straykids));
+                    break;
+                }
+                default:
+                    Log.d("ArtistaCheck", "El artista no es existe");
+                    break;
+            }
         }
 
         // Configurar RecyclerView
         RecyclerView recyclerView = findViewById(R.id.recyclerViewArticulos);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        ArticuloAdapter adapter = new ArticuloAdapter(this, articulos);
+        ArticuloAdapter adapter = new ArticuloAdapter(this, articulos, dbHelper);
         recyclerView.setAdapter(adapter);
     }
 }

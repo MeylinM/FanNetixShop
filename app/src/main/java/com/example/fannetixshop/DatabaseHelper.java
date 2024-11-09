@@ -132,7 +132,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
 
         // Realizar la consulta
-        Cursor cursor = db.rawQuery("SELECT a.titulo, a.descripcion, a.tipo, a.precio, a.path " +
+        Cursor cursor = db.rawQuery("SELECT a.titulo, a.descripcion, a.tipo, a.precio, a.path, a.id_articulo " +
                         "FROM Articulos a INNER JOIN Artistas ar ON a.id_artista = ar.id_artista WHERE ar.nombre = ?",
                 new String[]{nombreArtista});
 
@@ -155,7 +155,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
                     double precio = cursor.getDouble(cursor.getColumnIndexOrThrow("precio"));
                     String path = cursor.getString(cursor.getColumnIndexOrThrow("path"));
-                    articulos.add(new Articulo(titulo, descripcion, tipo, precio, path));
+                    int id = cursor.getInt(cursor.getColumnIndexOrThrow("id_articulo"));
+                    articulos.add(new Articulo(id, titulo, descripcion, tipo, precio, path));
                 } while (cursor.moveToNext());
             } else {
                 Log.d("DatabaseHelper", "No se encontraron artículos para el artista: " + nombreArtista);
@@ -183,6 +184,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cursor.close();
         return usuarioValido;
     }
+
+    public int obtenerIdUsuarioPorEmail(String email) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        int idUsuario = -1; // Valor por defecto en caso de no encontrar el usuario
+
+        // Realizar la consulta para obtener el id_usuario basado en el email
+        Cursor cursor = db.rawQuery("SELECT id_usuario FROM Usuarios WHERE email = ?", new String[]{email});
+
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                idUsuario = cursor.getInt(cursor.getColumnIndexOrThrow("id_usuario"));
+            }
+            cursor.close();
+        }
+
+        return idUsuario;
+    }
+
+
+
+
 
     public List<Artista> obtenerArtistas() {
         List<Artista> artistas = new ArrayList<>();
@@ -224,5 +246,70 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
 
         return false; // Si el artículo es nulo, no insertar
+    }
+
+    public boolean agregarAlCarrito(int idUsuario, int idArticulo) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        // Verificar si el artículo ya está en el carrito
+        Cursor cursor = db.rawQuery("SELECT * FROM ArticulosCarrito WHERE id_usuario = ? AND id_articulo = ?",
+                new String[]{String.valueOf(idUsuario), String.valueOf(idArticulo)});
+
+        if (cursor != null && cursor.moveToFirst()) {
+            // Si ya existe, devolver false
+            cursor.close();
+            return false;
+        }
+
+        // Si el artículo no está en el carrito, insertarlo
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("id_usuario", idUsuario);
+        contentValues.put("id_articulo", idArticulo);
+
+        long result = db.insert("ArticulosCarrito", null, contentValues);
+
+        // Si la inserción fue exitosa, devuelve true, de lo contrario false
+        return result != -1;
+    }
+
+    public List<Articulo> obtenerArticulosCarrito(int idUsuario) {
+        List<Articulo> articulosCarrito = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        // Asegúrate de que el idUsuario sea válido
+        if (idUsuario <= 0) {
+            return articulosCarrito; // Devuelve una lista vacía si el ID de usuario es inválido
+        }
+
+        // Realizar la consulta
+        Cursor cursor = db.rawQuery(
+                "SELECT a.titulo, a.precio, a.path, a.id_articulo " +
+                        "FROM Articulos a " +
+                        "INNER JOIN ArticulosCarrito ac ON a.id_articulo = ac.id_articulo " +
+                        "WHERE ac.id_usuario = ?",
+                new String[]{String.valueOf(idUsuario)}
+        );
+
+        // Revisar si hay resultados
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                do {
+                    String titulo = cursor.getString(cursor.getColumnIndexOrThrow("titulo"));
+                    double precio = cursor.getDouble(cursor.getColumnIndexOrThrow("precio"));
+                    String path = cursor.getString(cursor.getColumnIndexOrThrow("path"));
+                    int idArticulo = cursor.getInt(cursor.getColumnIndexOrThrow("id_articulo"));
+
+                    // Crear un nuevo artículo con los datos obtenidos
+                    articulosCarrito.add(new Articulo(idArticulo, titulo, null, null, precio, path));
+                } while (cursor.moveToNext());
+            } else {
+                Log.d("DatabaseHelper", "No se encontraron artículos en el carrito para el usuario: " + idUsuario);
+            }
+            cursor.close();
+        } else {
+            Log.e("DatabaseHelper", "Cursor es nulo, error en la consulta");
+        }
+
+        return articulosCarrito;
     }
 }

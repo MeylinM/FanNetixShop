@@ -7,194 +7,81 @@
     android:layout_height="match_parent"
     tools:context=".ShoppingCartActivity">
 
+    <!-- Encabezado del carrito -->
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/encabezadoCarrito"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/header" />
 
+    <!-- Botón de volver -->
+
+    <!-- RecyclerView para el carrito -->
     <ImageView
-        android:id="@+id/imgViewVolver"
+        android:id="@+id/volver"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="325dp"
-        android:layout_marginBottom="820dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="328dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/flecha_volver_peque" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewCarrito"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/encabezadoCarrito"
+        app:layout_constraintBottom_toTopOf="@id/linearLayoutPago"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- LinearLayout para el total y la suma -->
     <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="409dp"
-        android:layout_height="889dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginBottom="1dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        tools:layout_editor_absoluteX="1dp"
-        tools:ignore="MissingConstraints">
+        android:id="@+id/linearLayoutPago"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/recyclerViewCarrito"
+        app:layout_constraintBottom_toTopOf="@id/btnPagar"
+        android:orientation="horizontal"
+        android:padding="16dp">
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/Total"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Total:"
+            android:fontFamily="@font/poppins_bold"
+            android:textSize="24sp"
+            android:gravity="end" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TableLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <TableRow
-                        android:layout_width="329dp"
-                        android:layout_height="242dp"
-                        android:orientation="vertical">
-
-                        <CheckBox
-                            android:id="@+id/checkBox"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent" />
-
-                        <ImageView
-                            android:id="@+id/imageView4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:srcCompat="@drawable/funkos2" />
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:id="@+id/textDescrip"
-                                android:layout_width="196dp"
-                                android:layout_height="96dp"
-                                android:text="@string/text_descripcion"
-                                android:textColor="@color/black"
-                                android:textSize="24sp" />
-
-                            <TextView
-                                android:id="@+id/textPrice"
-                                android:layout_width="209dp"
-                                android:layout_height="match_parent"
-                                android:text="@string/text_precio"
-                                android:textSize="20sp" />
-                        </LinearLayout>
-
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <CheckBox
-                            android:id="@+id/checkBox2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent" />
-
-                        <ImageView
-                            android:id="@+id/imageView6"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:srcCompat="@drawable/album_straykids2" />
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:id="@+id/textDescrip2"
-                                android:layout_width="189dp"
-                                android:layout_height="wrap_content"
-                                android:text="@string/text_descripcion2"
-                                android:textColor="@color/black"
-                                android:textSize="24sp" />
-
-                            <TextView
-                                android:id="@+id/textPrice2"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="@string/text_precio2"
-                                android:textSize="20sp" />
-                        </LinearLayout>
-
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <CheckBox
-                            android:id="@+id/checkBox3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-
-                        <ImageView
-                            android:id="@+id/imageView7"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:srcCompat="@drawable/camiseta2" />
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:id="@+id/textView6"
-                                android:layout_width="201dp"
-                                android:layout_height="wrap_content"
-                                android:text="@string/text_descripcion3"
-                                android:textColor="@color/black"
-                                android:textSize="24sp" />
-
-                            <TextView
-                                android:id="@+id/textView7"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="@string/text_precio3"
-                                android:textSize="20sp" />
-                        </LinearLayout>
-                    </TableRow>
-
-                </TableLayout>
-
-            </LinearLayout>
-        </ScrollView>
-
+        <TextView
+            android:id="@+id/tvSuma"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Suma"
+            android:fontFamily="@font/poppins_medium"
+            android:textSize="20sp"
+            android:gravity="center" />
     </LinearLayout>
 
+    <!-- Botón de pagar -->
     <Button
-        android:id="@+id/buttonPagar"
-        android:layout_width="236dp"
-        android:layout_height="61dp"
-        android:layout_marginTop="750dp"
-        android:backgroundTint="@color/black"
+        android:id="@+id/btnPagar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:backgroundTint="#000000"
         android:text="@string/btnPay"
-        android:textSize="24sp"
+        android:fontFamily="@font/poppins_medium"
+        android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageView2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <TextView
-        android:id="@+id/textPrecio"
-        android:layout_width="75dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="620dp"
-        android:text="@string/text_precio_total"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

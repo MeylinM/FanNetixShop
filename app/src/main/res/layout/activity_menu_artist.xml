@@ -18,8 +18,8 @@
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="408dp"
-        android:layout_height="843dp"
+        android:layout_width="403dp"
+        android:layout_height="734dp"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="1dp">
@@ -127,29 +127,19 @@
                         app:srcCompat="@drawable/btn_stray" />
                 </TableRow>
             </TableLayout>
-
-            <Button
-                android:id="@+id/upload"
-                android:layout_width="449dp"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/cardview_shadow_end_color"
-                android:contentDescription="Boton de todos los productos" />
-
-            <Button
-                android:id="@+id/btnSubirProducto"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:backgroundTint="#000000"
-                android:text="@string/btnUploadProduct"
-                android:textSize="30sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-
-
         </LinearLayout>
     </ScrollView>
-
+    <Button
+        android:id="@+id/btnSubirProducto"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:backgroundTint="#000000"
+        android:text="@string/btnUploadProduct"
+        android:fontFamily="@font/poppins_medium"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

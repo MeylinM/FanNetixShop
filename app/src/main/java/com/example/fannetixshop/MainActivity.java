@@ -1,12 +1,14 @@
 package com.example.fannetixshop;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -40,8 +42,14 @@ public class MainActivity extends AppCompatActivity {
                 String password = editTextPassword.getText().toString().trim();
 
 
-                // Verificar que el usuario exista y que la contraseña sea correcta
+                // Verificar si el usuario existe
                 if (databaseHelper.validarUsuario(email, password)) {
+                    int userId = databaseHelper.obtenerIdUsuarioPorEmail(email);
+                    // Guardar el ID del usuario en SharedPreferences
+                    SharedPreferences preferences = getSharedPreferences("user_prefs", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putInt("user_id", userId);
+                    editor.apply();
                     Intent intent = new Intent(MainActivity.this, MenuArtistActivity.class);
                     startActivity(intent);
                 } else {

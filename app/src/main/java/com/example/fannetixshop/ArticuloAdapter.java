@@ -1,29 +1,30 @@
 package com.example.fannetixshop;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+import android.content.SharedPreferences;
 import android.net.Uri;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.io.File;
 import java.util.List;
 
 public class ArticuloAdapter extends RecyclerView.Adapter<ArticuloAdapter.ArticuloViewHolder> {
     private List<Articulo> articulos;
     private Context context;
+    private DatabaseHelper dbHelper;
 
-    public ArticuloAdapter(Context context, List<Articulo> articulos) {
+    public ArticuloAdapter(Context context, List<Articulo> articulos, DatabaseHelper databaseHelper) {
         this.context = context;
         this.articulos = articulos;
+        this.dbHelper = databaseHelper;
     }
+
 
     @Override
     public ArticuloViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -51,6 +52,22 @@ public class ArticuloAdapter extends RecyclerView.Adapter<ArticuloAdapter.Articu
         } else{
             holder.ivArticulo.setImageURI(Uri.parse(path));
         }
+        SharedPreferences sharedPreferences = context.getSharedPreferences("user_preferences", Context.MODE_PRIVATE);
+        int userId = sharedPreferences.getInt("user_id", -1);
+        // Acción de agregar al carrito
+        holder.btnComprar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean success = dbHelper.agregarAlCarrito(userId, articulo.getId());
+
+                // Mostrar un Toast si el artículo fue añadido con éxito
+                if (success) {
+                    Toast.makeText(context, "Artículo añadido al carrito: " + articulo.getTitulo(), Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(context, "Error al agregar el artículo al carrito", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
     }
 
@@ -61,7 +78,7 @@ public class ArticuloAdapter extends RecyclerView.Adapter<ArticuloAdapter.Articu
     }
 
     public static class ArticuloViewHolder extends RecyclerView.ViewHolder {
-        TextView tvTitulo, tvDescripcion, tvPrecio, tvTipo;
+        TextView tvTitulo, tvDescripcion, tvPrecio, tvTipo, btnComprar;
         ImageView ivArticulo;
 
         public ArticuloViewHolder(View itemView) {
@@ -71,6 +88,7 @@ public class ArticuloAdapter extends RecyclerView.Adapter<ArticuloAdapter.Articu
             tvDescripcion = itemView.findViewById(R.id.tvDescripcion);
             tvPrecio = itemView.findViewById(R.id.tvPrecio);
             ivArticulo = itemView.findViewById(R.id.ivArticulo);
+            btnComprar = itemView.findViewById(R.id.btnComprar);
         }
     }
 }
