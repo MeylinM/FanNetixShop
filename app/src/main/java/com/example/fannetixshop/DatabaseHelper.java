@@ -225,8 +225,4 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         return false; // Si el artículo es nulo, no insertar
     }
-
-
-
-
 }
