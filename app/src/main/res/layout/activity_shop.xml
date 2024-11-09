@@ -7,23 +7,12 @@
     android:layout_height="match_parent"
     tools:context=".ShopActivity">
 
-    <!-- Encabezado -->
-
-    <!-- Botón Play -->
-
-    <!-- Botón Volver -->
-
-    <!-- Carrito -->
-
-    <!-- RecyclerView debajo del encabezado -->
-
     <ImageView
         android:id="@+id/encabezado"
-        android:layout_width="0dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="410dp"
+        android:layout_height="210dp"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerViewArticulos"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -33,13 +22,11 @@
         android:layout_height="69dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.174"
+        app:layout_constraintHorizontal_bias="0.116"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.117"
+        app:layout_constraintVertical_bias="0.128"
         app:srcCompat="@drawable/play" />
-
-    <!-- Botón Subir Producto -->
 
     <ImageView
         android:id="@+id/volver"
@@ -47,45 +34,32 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.102"
+        app:layout_constraintHorizontal_bias="0.083"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023"
+        app:layout_constraintTop_toTopOf="@+id/encabezado"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/flecha_volver_peque" />
 
+    <!-- RecyclerView para mostrar los artículos -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewArticulos"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/encabezado" />
     <ImageView
         android:id="@+id/carrito"
         android:layout_width="64dp"
         android:layout_height="56dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.953"
+        app:layout_constraintHorizontal_bias="0.925"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.032"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="?attr/selectableItemBackgroundBorderless" />
+    <!-- Botón en la parte inferior -->
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerArticulo"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/btnSubirProducto"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/encabezado"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/btnSubirProducto"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:layout_marginBottom="16dp"
-        android:backgroundTint="#000000"
-        android:text="@string/btnUploadProduct"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

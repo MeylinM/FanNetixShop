@@ -7,15 +7,61 @@
     <androidx.camera.view.PreviewView
         android:id="@+id/previewView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent" >
 
 
-    <Button
+    </androidx.camera.view.PreviewView>
+
+    <ImageView
+        android:id="@+id/imageViewCaptured"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="16dp"
+        android:visibility="gone" />
+
+    <ImageButton
         android:id="@+id/captureButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Capture"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"/>
-</RelativeLayout>
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:contentDescription="Capture"
+        android:src="@drawable/btn_camera2" />
 
+    <ImageButton
+        android:id="@+id/returnButton"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="20dp"
+        android:contentDescription="Return"
+        android:src="@drawable/back" />
+
+    <ImageButton
+        android:id="@+id/closeButton"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="20dp"
+        android:contentDescription="Close"
+        android:src="@drawable/close"
+        android:visibility="gone"/>
+
+    <ImageButton
+        android:id="@+id/checkButton"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:contentDescription="Check"
+        android:src="@drawable/check"
+        android:visibility="gone"/>
+</RelativeLayout>

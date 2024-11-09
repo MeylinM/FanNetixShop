@@ -128,13 +128,25 @@
                 </TableRow>
             </TableLayout>
 
-            <ImageButton
-                android:id="@+id/imageButton11"
+            <Button
+                android:id="@+id/upload"
                 android:layout_width="449dp"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/cardview_shadow_end_color"
-                android:contentDescription="Boton de todos los productos"
-                app:srcCompat="@drawable/btn_products" />
+                android:contentDescription="Boton de todos los productos" />
+
+            <Button
+                android:id="@+id/btnSubirProducto"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:backgroundTint="#000000"
+                android:text="@string/btnUploadProduct"
+                android:textSize="30sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
 
         </LinearLayout>
     </ScrollView>
