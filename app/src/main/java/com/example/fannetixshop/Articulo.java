@@ -8,6 +8,7 @@ public class Articulo {
     private double precio; // Precio del artículo
     private int idArtista; // ID del artista
     private String path;
+    private boolean seleccionado;
 
     // Constructor actualizado con idArtista
     public Articulo(String titulo, String descripcion, Tipo tipo, double precio, int idArtista, String path) {
@@ -34,6 +35,7 @@ public class Articulo {
         this.tipo = tipo;
         this.precio = precio; // Precio del artículo
         this.path = path;
+        this.seleccionado = false;
     }
 
     // Getters
@@ -75,5 +77,13 @@ public class Articulo {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public boolean isSeleccionado() {
+        return seleccionado;
+    }
+
+    public void setSeleccionado(boolean seleccionado) {
+        this.seleccionado = seleccionado;
     }
 }

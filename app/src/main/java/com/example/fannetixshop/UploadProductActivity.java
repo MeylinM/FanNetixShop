@@ -173,7 +173,7 @@ public class UploadProductActivity extends AppCompatActivity {
         if(databaseHelper.crearArticulo(articulo)){
             // Mostrar un mensaje de confirmación
             Toast.makeText(this, "Artículo creado: " + articulo.getTitulo(), Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(UploadProductActivity.this, ShopActivity.class);
+            Intent intent = new Intent(UploadProductActivity.this, MenuArtistActivity.class);
             startActivity(intent);
 
         }else{

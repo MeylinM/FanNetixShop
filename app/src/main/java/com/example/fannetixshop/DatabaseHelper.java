@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.database.sqlite.SQLiteStatement;
 import android.util.Log;
 
 import java.util.ArrayList;
@@ -283,7 +284,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         // Realizar la consulta
         Cursor cursor = db.rawQuery(
-                "SELECT a.titulo, a.precio, a.path, a.id_articulo " +
+                "SELECT a.titulo, a.precio, a.path, a.id_articulo, a.descripcion " +
                         "FROM Articulos a " +
                         "INNER JOIN ArticulosCarrito ac ON a.id_articulo = ac.id_articulo " +
                         "WHERE ac.id_usuario = ?",
@@ -298,9 +299,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     double precio = cursor.getDouble(cursor.getColumnIndexOrThrow("precio"));
                     String path = cursor.getString(cursor.getColumnIndexOrThrow("path"));
                     int idArticulo = cursor.getInt(cursor.getColumnIndexOrThrow("id_articulo"));
-
+                    String descripcion = cursor.getString(cursor.getColumnIndexOrThrow("descripcion"));
                     // Crear un nuevo artículo con los datos obtenidos
-                    articulosCarrito.add(new Articulo(idArticulo, titulo, null, null, precio, path));
+                    articulosCarrito.add(new Articulo(idArticulo, titulo, descripcion, null, precio, path));
                 } while (cursor.moveToNext());
             } else {
                 Log.d("DatabaseHelper", "No se encontraron artículos en el carrito para el usuario: " + idUsuario);
@@ -311,5 +312,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
 
         return articulosCarrito;
+    }
+
+    public boolean eliminarArticuloDelCarrito(int userId, int articuloId) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        // Consulta SQL para eliminar el artículo del carrito
+        String deleteQuery = "DELETE FROM ArticulosCarrito WHERE id_usuario = ? AND id_articulo = ?";
+        SQLiteStatement statement = db.compileStatement(deleteQuery);
+        statement.bindLong(1, userId);       // Asignar el id_usuario
+        statement.bindLong(2, articuloId);   // Asignar el id_articulo
+
+        // Ejecutar la consulta y verificar si se eliminó correctamente
+        int rowsDeleted = statement.executeUpdateDelete();
+        db.close();
+        return rowsDeleted > 0; // Retorna true si se eliminó al menos un artículo
     }
 }

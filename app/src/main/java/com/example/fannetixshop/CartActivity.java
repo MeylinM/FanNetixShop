@@ -1,9 +1,16 @@
 package com.example.fannetixshop;
 
+import static androidx.camera.core.CameraXThreads.TAG;
+
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,68 +23,123 @@ import java.util.List;
 
 public class CartActivity extends AppCompatActivity {
 
-    private ImageView volver;
     private RecyclerView recyclerViewCarrito;
     private TextView tvSuma;
     private Button btnPagar;
-    private CarritoAdapter carritoAdapter;
-    private List<Articulo> articulosCarrito; // Lista de artículos en el carrito
-    private Carrito carrito;
-    private DatabaseHelper dbHelper = new DatabaseHelper(this);
+    private ImageView btnVolver;
+    private ImageView btnEliminar;
+    private CartAdapter cartAdapter;
+    private List<Articulo> articulosCarrito;
+    private DatabaseHelper databaseHelper;
+    private SharedPreferences sharedPreferences;
 
+    @SuppressLint("RestrictedApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shopping_cart);
 
-        // Inicializa los componentes de la interfaz
-        volver = findViewById(R.id.volver);
+        // Inicializar vistas
         recyclerViewCarrito = findViewById(R.id.recyclerViewCarrito);
         tvSuma = findViewById(R.id.tvSuma);
         btnPagar = findViewById(R.id.btnPagar);
+        btnVolver = findViewById(R.id.volver);
+        btnEliminar = findViewById(R.id.btnEliminar);
 
-        // Obtén el ID del usuario desde SharedPreferences
-        SharedPreferences sharedPreferences = getSharedPreferences("user_preferences", Context.MODE_PRIVATE);
-        int userId = sharedPreferences.getInt("user_id", -1);
-
-        // Aquí debes cargar el carrito del usuario, por ejemplo desde una base de datos
-        // Pero por ahora vamos a crear un carrito vacío (simulando que ya está cargado)
-        carrito = new Carrito(); // Este carrito debe estar asociado con el usuario cargado
-
-        // Cargar artículos en el carrito (esto sería de una base de datos o del estado del usuario)
-        articulosCarrito = dbHelper.obtenerArticulosCarrito(userId);
-
-        // Configura el RecyclerView
+        // Configurar RecyclerView
         recyclerViewCarrito.setLayoutManager(new LinearLayoutManager(this));
-        carritoAdapter = new CarritoAdapter(articulosCarrito, carrito);
-        recyclerViewCarrito.setAdapter(carritoAdapter);
 
-        // Calcula y muestra el total
-        actualizarTotal();
+        SharedPreferences preferences = getSharedPreferences("user_prefs", MODE_PRIVATE);
+        int userId = preferences.getInt("user_id", -1);
 
-        // Configura el evento para el botón "volver"
-        volver.setOnClickListener(v -> finish());
+        databaseHelper = new DatabaseHelper(this);
 
-        // Configura el evento para el botón "pagar"
+        // Obtener artículos del carrito
+        articulosCarrito = databaseHelper.obtenerArticulosCarrito(userId);
+
+        // Verificar si la lista de artículos está vacía o no
+        if (articulosCarrito == null || articulosCarrito.isEmpty()) {
+            Log.w(TAG, "El carrito está vacío o no se obtuvieron artículos.");
+            Toast.makeText(this, "Carrito vacío", Toast.LENGTH_SHORT).show();
+        } else {
+            // Configurar el adaptador
+            cartAdapter = new CartAdapter(articulosCarrito, this);
+            recyclerViewCarrito.setAdapter(cartAdapter);
+
+        }
+
+
+        // Configurar acción del botón de pagar
         btnPagar.setOnClickListener(v -> {
-            if (!articulosCarrito.isEmpty()) {
-                // Vaciar el carrito tras realizar la compra
-                carrito.vaciarCarrito();
-                carritoAdapter.notifyDataSetChanged(); // Actualiza el adaptador
+            comprarArticulosSeleccionados();
+        });
 
-                // Muestra el Toast de confirmación
-                Toast.makeText(this, "Compra realizada. ¡Gracias por tu compra!", Toast.LENGTH_SHORT).show();
-
-                // Actualiza el total a 0
-                actualizarTotal();
-            } else {
-                Toast.makeText(this, "El carrito está vacío", Toast.LENGTH_SHORT).show();
+        btnVolver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CartActivity.this, ShopActivity.class);
+                startActivity(intent);
             }
+        });
+
+        btnEliminar.setOnClickListener(v -> {
+            eliminarArticulosSeleccionados();
         });
     }
 
-    private void actualizarTotal() {
-        double sumaTotal = carrito.calcularTotal(); // Método en Carrito para calcular el total
-        tvSuma.setText(String.format("%.2f €", sumaTotal));
+    private void comprarArticulosSeleccionados() {
+        List<Articulo> seleccionados = cartAdapter.getArticulosSeleccionados();
+        if (seleccionados.isEmpty()) {
+            Toast.makeText(this, "No hay artículos seleccionados para comprar.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        SharedPreferences preferences = getSharedPreferences("user_prefs", MODE_PRIVATE);
+        int userId = preferences.getInt("user_id", -1);
+
+        // Eliminar los artículos seleccionados de la base de datos
+        for (Articulo articulo : seleccionados) {
+            boolean eliminado = databaseHelper.eliminarArticuloDelCarrito(userId, articulo.getId());
+            if (eliminado) {
+                articulosCarrito.remove(articulo);
+            }
+        }
+        // Actualizar el RecyclerView
+        cartAdapter.notifyDataSetChanged();
+
+        // Mostrar mensaje de éxito
+        Toast.makeText(this, "Pago procesado", Toast.LENGTH_SHORT).show();
+    }
+
+    private void eliminarArticulosSeleccionados() {
+        List<Articulo> seleccionados = cartAdapter.getArticulosSeleccionados();
+        if (seleccionados.isEmpty()) {
+            Toast.makeText(this, "No hay artículos seleccionados para eliminar.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        SharedPreferences preferences = getSharedPreferences("user_prefs", MODE_PRIVATE);
+        int userId = preferences.getInt("user_id", -1);
+
+        // Eliminar los artículos seleccionados de la base de datos
+        for (Articulo articulo : seleccionados) {
+            boolean eliminado = databaseHelper.eliminarArticuloDelCarrito(userId, articulo.getId());
+            if (eliminado) {
+                articulosCarrito.remove(articulo);
+            }
+        }
+
+        // Actualizar el RecyclerView
+        cartAdapter.notifyDataSetChanged();
+
+        // Mostrar mensaje de éxito
+        Toast.makeText(this, "Artículos eliminados", Toast.LENGTH_SHORT).show();
+    }
+
+    public void actualizarTotal(double total) {
+        tvSuma.setText(String.format("$%.2f", total));
     }
 }
+
+
+

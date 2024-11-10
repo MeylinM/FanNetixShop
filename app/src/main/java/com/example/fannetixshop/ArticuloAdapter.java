@@ -52,7 +52,7 @@ public class ArticuloAdapter extends RecyclerView.Adapter<ArticuloAdapter.Articu
         } else{
             holder.ivArticulo.setImageURI(Uri.parse(path));
         }
-        SharedPreferences sharedPreferences = context.getSharedPreferences("user_preferences", Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = context.getSharedPreferences("user_prefs", Context.MODE_PRIVATE);
         int userId = sharedPreferences.getInt("user_id", -1);
         // Acción de agregar al carrito
         holder.btnComprar.setOnClickListener(new View.OnClickListener() {
@@ -62,9 +62,9 @@ public class ArticuloAdapter extends RecyclerView.Adapter<ArticuloAdapter.Articu
 
                 // Mostrar un Toast si el artículo fue añadido con éxito
                 if (success) {
-                    Toast.makeText(context, "Artículo añadido al carrito: " + articulo.getTitulo(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Artículo añadido al carrito", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(context, "Error al agregar el artículo al carrito", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Ya tienes ese articulo en el carrito", Toast.LENGTH_SHORT).show();
                 }
             }
         });
