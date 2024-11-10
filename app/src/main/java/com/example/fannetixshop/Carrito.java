@@ -26,7 +26,6 @@ public class Carrito {
         return total;
     }
 
-    // Obtener la lista de artículos
     public List<Articulo> getArticulos() {
         return articulos;
     }
