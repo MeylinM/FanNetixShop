@@ -127,30 +127,28 @@ public class UploadProductActivity extends AppCompatActivity {
 
         // Validación de los campos obligatorios
         if (titulo.isEmpty()) {
-            Toast.makeText(this, "Introduce un nombre para el producto", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.toastEmpty1), Toast.LENGTH_SHORT).show();
             return;
         }
 
         if (descripcion.isEmpty()) {
-            Toast.makeText(this, "Introduce una descripción para el producto", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.toastEmpty2), Toast.LENGTH_SHORT).show();
             return;
         }
 
         if (precioText.isEmpty()) {
-            Toast.makeText(this, "Introduce un precio para el producto", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.toastEmpty3), Toast.LENGTH_SHORT).show();
             return;
         }
-
         // Validación del campo de precio
         try {
             precio = Double.parseDouble(precioText);
         } catch (NumberFormatException e) {
-            Toast.makeText(this, "Introduce un precio válido", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.toastPriceFormat), Toast.LENGTH_SHORT).show();
             return;
         }
-
         if (imagePath.isEmpty()) {
-            Toast.makeText(this, "Por favor, captura una foto del producto", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.toastPhoto), Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -162,23 +160,22 @@ public class UploadProductActivity extends AppCompatActivity {
         } else if (selectedRadioButtonId == R.id.radioButtonFanmade) {
             tipo = Tipo.FANMADE;
         } else {
-            Toast.makeText(this, "Selecciona un tipo de producto", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.toastType), Toast.LENGTH_SHORT).show();
             return;
         }
-
 
         int idArtista = obtenerIdArtistaSeleccionado();
 
         Articulo articulo = new Articulo(titulo, descripcion, tipo, precio, idArtista, imagePath);
         if(databaseHelper.crearArticulo(articulo)){
             // Mostrar un mensaje de confirmación
-            Toast.makeText(this, "Artículo creado: " + articulo.getTitulo(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.toastCreated) + articulo.getTitulo(), Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(UploadProductActivity.this, MenuArtistActivity.class);
             startActivity(intent);
 
         }else{
             // Mostrar un mensaje de confirmación
-            Toast.makeText(this, "No se ha podido crear el articulo ", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.toastNotCreated), Toast.LENGTH_SHORT).show();
         }
 
     }

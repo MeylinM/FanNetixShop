@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                 } else {
                     // Mostrar mensaje de error
-                    Toast.makeText(MainActivity.this, "Error, usuario no encontrado", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, getString(R.string.toastUserNotFound), Toast.LENGTH_SHORT).show();
                 }
             }
         });

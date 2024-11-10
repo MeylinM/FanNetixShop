@@ -50,7 +50,7 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@color/black"
             android:fontFamily="@font/poppins_medium"
-            android:text="Comprar"
+            android:text="@string/btnBuy"
             android:textSize="16sp" />
         <Space
             android:layout_width="25dp"

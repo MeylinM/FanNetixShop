@@ -11,10 +11,40 @@
         android:id="@+id/encabezado"
         android:layout_width="410dp"
         android:layout_height="210dp"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerViewArticulos"
+        app:layout_constraintBottom_toTopOf="@+id/video"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/video"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/encabezado"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <VideoView
+            android:id="@+id/videoView"
+            android:layout_width="wrap_content"
+            android:layout_height="190dp"/>
+    </LinearLayout>
+
+    <!-- RecyclerView para mostrar los artículos -->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewArticulos"
+        android:layout_width="448dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/btnigLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/video"
+        app:layout_constraintVertical_bias="0.0"
+        tools:listitem="@layout/item" />
 
     <ImageView
         android:id="@+id/btnPlay"
@@ -40,15 +70,6 @@
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/flecha_volver_peque" />
 
-    <!-- RecyclerView para mostrar los artículos -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewArticulos"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/encabezado" />
     <ImageView
         android:id="@+id/carrito"
         android:layout_width="64dp"
@@ -60,6 +81,35 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="?attr/selectableItemBackgroundBorderless" />
-    <!-- Botón en la parte inferior -->
+
+    <LinearLayout
+        android:id="@+id/btnigLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <!-- ImageView del botón Instagram -->
+        <ImageView
+            android:id="@+id/btnig"
+            android:layout_width="67dp"
+            android:layout_height="50dp"
+            android:background="#041D1B20"
+            app:srcCompat="@drawable/instagram" />
+
+        <!-- TextView al lado del botón -->
+        <TextView
+            android:id="@+id/btnigText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/textIG"
+            android:textSize="16sp"
+            android:layout_marginStart="8dp"
+            android:gravity="center_vertical" />
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

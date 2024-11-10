@@ -62,9 +62,9 @@ public class ArticuloAdapter extends RecyclerView.Adapter<ArticuloAdapter.Articu
 
                 // Mostrar un Toast si el artículo fue añadido con éxito
                 if (success) {
-                    Toast.makeText(context, "Artículo añadido al carrito", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, R.string.toastItemAddedCart, Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(context, "Ya tienes ese articulo en el carrito", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, R.string.toastItemNotAddedCart, Toast.LENGTH_SHORT).show();
                 }
             }
         });

@@ -1,17 +1,15 @@
-<!-- Texts for the app in English -->
+<!--  Texts for the app in English  -->
 <resources>
     <string name="app_name">FanNetixShop</string>
     <string name="btnSignIn">SignIn</string>
-
-    <!-- Texts used in the SignIn activity in English -->
+    <!--  Texts used in the Main activity in English  -->
     <string name="text_subTitulo">Sign in to continue</string>
     <string name="text_email">EMAIL</string>
     <string name="text_passwd">PASSWORD</string>
     <string name="btn_SigIn">Sign In</string>
-
-    <!-- Texts used in the new product activity in English -->
+    <!--  Texts used in the upload product activity in English  -->
     <string name="tvTitulo">Upload Product</string>
-    <string name="infoTextUpdateResources">Upload photos and videos</string>
+    <string name="infoTextUpdateResources">Upload photos</string>
     <string name="infoTextName">Product name</string>
     <string name="infoTextDescription">Description</string>
     <string name="infoTextType">Type</string>
@@ -20,10 +18,8 @@
     <string name="infoTextArtist">Artist</string>
     <string name="infoTextPrice">Price</string>
     <string name="btnVolver">Back</string>
-    <string name="sbContend">Scroll down to see more images or videos uploaded</string>
     <string name="btnUploadProduct">Upload</string>
-
-    <!-- Options for the spinner (artists) -->
+    <!--  Options for the spinner (artists)  -->
     <string name="spOpt1">Bruno Mars</string>
     <string name="spOpt2">BlackPink</string>
     <string name="spOpt3">Eminem</string>
@@ -32,19 +28,29 @@
     <string name="spOpt6">IZ*ONE</string>
     <string name="spOpt7">Adele</string>
     <string name="spOpt8">Fito</string>
-
-    <!-- Texts used in the shop xmls -->
+    <!--  Texts used in the shop xmls  -->
     <string name="btnBuy">Buy</string>
     <string name="btnUpload">Upload Product</string>
-    <string name="horizontalScroll">Product Images</string>
+    <string name="textIG">Check their instagram</string>
 
-    <!-- Texts used in the shopping cart -->
+    <!--  Texts used in the shopping cart  -->
     <string name="btnPay">Pay</string>
-    <string name="text_descripcion">Born Pink Heart Globe Black T-Shirt</string>
-    <string name="text_precio">45.00€</string>
-    <string name="text_descripcion2">Funko Pop! BLACKPINK Pin Set</string>
-    <string name="text_precio2">20.00€</string>
-    <string name="text_descripcion3">MAMAMOO OFFICIAL LIGHT STICK!</string>
-    <string name="text_precio3">50.00€</string>
     <string name="text_precio_total">Total:</string>
+    <!--  Texts used in the toasts  -->
+    <string name="toastEmpty1">"Enter a name for the item"</string>
+    <string name="toastEmpty2">"Enter a description for the item"</string>
+    <string name="toastEmpty3">"Enter a price for the item"</string>
+    <string name="toastPriceFormat">"Enter a valid price"</string>
+    <string name="toastPhoto">"Please, take a picture of the item"</string>
+    <string name="toastType">"Select a type for the item"</string>
+    <string name="toastCreated">"Created item: "</string>
+    <string name="toastNotCreated">"Item cannot be created"</string>
+    <string name="toastEmptyCart">"Shopping cart is empty"</string>
+    <string name="toastProductNotSelected">"There are no items selected for purchase"</string>
+    <string name="toastPayment">"Payment processed"</string>
+    <string name="toastItemNotSelectedPay">"There are no items selected to delete"</string>
+    <string name="toastDeletedItems">"Items deleted successfully"</string>
+    <string name="toastUserNotFound">"Error, user not found"</string>
+    <string name="toastItemAddedCart">"Item added to the cart"</string>
+    <string name="toastItemNotAddedCart">"You already have that item on the cart"</string>
 </resources>

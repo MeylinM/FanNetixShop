@@ -59,8 +59,8 @@ public class CartActivity extends AppCompatActivity {
 
         // Verificar si la lista de artículos está vacía o no
         if (articulosCarrito == null || articulosCarrito.isEmpty()) {
-            Log.w(TAG, "El carrito está vacío o no se obtuvieron artículos.");
-            Toast.makeText(this, "Carrito vacío", Toast.LENGTH_SHORT).show();
+            Log.w(TAG, getString(R.string.toastEmptyCart));
+            Toast.makeText(this, getString(R.string.toastEmptyCart), Toast.LENGTH_SHORT).show();
         } else {
             // Configurar el adaptador
             cartAdapter = new CartAdapter(articulosCarrito, this);
@@ -90,7 +90,7 @@ public class CartActivity extends AppCompatActivity {
     private void comprarArticulosSeleccionados() {
         List<Articulo> seleccionados = cartAdapter.getArticulosSeleccionados();
         if (seleccionados.isEmpty()) {
-            Toast.makeText(this, "No hay artículos seleccionados para comprar.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.toastProductNotSelected), Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -108,13 +108,13 @@ public class CartActivity extends AppCompatActivity {
         cartAdapter.notifyDataSetChanged();
 
         // Mostrar mensaje de éxito
-        Toast.makeText(this, "Pago procesado", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, getString(R.string.toastPayment), Toast.LENGTH_SHORT).show();
     }
 
     private void eliminarArticulosSeleccionados() {
         List<Articulo> seleccionados = cartAdapter.getArticulosSeleccionados();
         if (seleccionados.isEmpty()) {
-            Toast.makeText(this, "No hay artículos seleccionados para eliminar.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.toastItemNotSelectedPay), Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -133,7 +133,7 @@ public class CartActivity extends AppCompatActivity {
         cartAdapter.notifyDataSetChanged();
 
         // Mostrar mensaje de éxito
-        Toast.makeText(this, "Artículos eliminados", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, getString(R.string.toastDeletedItems), Toast.LENGTH_SHORT).show();
     }
 
     public void actualizarTotal(double total) {
