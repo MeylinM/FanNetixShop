@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Estilo para el Spinner -->
+    <style name="CustomSpinner" parent="Widget.AppCompat.Spinner">
+        <!-- Color del texto cuando el Spinner está cerrado -->
+        <item name="android:textColor">#FFFFFF</item> <!-- Texto blanco cuando no está desplegado -->
+        <item name="android:background">@drawable/spinner</item> <!-- Fondo transparente -->
+        <item name="android:popupBackground">@color/spinner_popup_background</item> <!-- Fondo rojo para el desplegable -->
+        <item name="android:textColorHint">#FFFFFF</item> <!-- Color del texto de los items del Spinner desplegado -->
+
+    </style>
+</resources>
+
+
+
+
+
+
+
+
+
