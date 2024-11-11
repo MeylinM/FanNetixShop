@@ -58,4 +58,7 @@
     <string name="toastUserNotFound">"Error, user not found"</string>
     <string name="toastItemAddedCart">"Item added to the cart"</string>
     <string name="toastItemNotAddedCart">"You already have that item on the cart"</string>
+    <string name="toastImageSaved">"Photo saved"</string>
+    <string name="toastImageError">"Error while saving image"</string>
+    <string name="toastCameraPermission">"Camera permission is required"</string>
 </resources>

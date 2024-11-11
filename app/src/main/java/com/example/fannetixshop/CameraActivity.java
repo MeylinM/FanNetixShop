@@ -72,6 +72,7 @@ public class CameraActivity extends AppCompatActivity {
             // Ocultar la imagen y volver a los botones iniciales
             imageViewCaptured.setVisibility(View.GONE); // Ocultar la imagen
             captureButton.setVisibility(View.VISIBLE); // Mostrar el botón de captura
+            returnButton.setVisibility(View.VISIBLE);
             closeButton.setVisibility(View.GONE); // Ocultar el botón de cerrar
             checkButton.setVisibility(View.GONE); // Ocultar el botón de check
         });
@@ -79,7 +80,7 @@ public class CameraActivity extends AppCompatActivity {
         // Configurar el botón de aceptar (check)
         checkButton.setOnClickListener(v -> {
             // Acción para guardar la foto
-            Toast.makeText(this, "Imagen confirmada!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.toastImageSaved), Toast.LENGTH_SHORT).show();
 
             // Crear el Intent para devolver el path de la imagen
             Intent resultIntent = new Intent();
@@ -149,7 +150,6 @@ public class CameraActivity extends AppCompatActivity {
                 new ImageCapture.OnImageSavedCallback() {
                     @Override
                     public void onImageSaved(@NonNull ImageCapture.OutputFileResults output) {
-                        Toast.makeText(CameraActivity.this, "Photo saved successfully!", Toast.LENGTH_SHORT).show();
 
                         // Convertir la imagen guardada en un Bitmap y mostrarla en ImageView
                         try {
@@ -169,13 +169,14 @@ public class CameraActivity extends AppCompatActivity {
 
                         // Después de tomar la foto, mostrar los botones de cerrar y aceptar
                         captureButton.setVisibility(View.GONE);
+                        returnButton.setVisibility(View.GONE);
                         closeButton.setVisibility(View.VISIBLE);
                         checkButton.setVisibility(View.VISIBLE);
                     }
 
                     @Override
                     public void onError(@NonNull ImageCaptureException exception) {
-                        Toast.makeText(CameraActivity.this, "Error saving photo: " + exception.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(CameraActivity.this, getString(R.string.toastImageError), Toast.LENGTH_SHORT).show();
                     }
                 });
     }
@@ -189,7 +190,7 @@ public class CameraActivity extends AppCompatActivity {
             startCamera();
         } else {
             // Permiso no concedido, mostrar mensaje
-            Toast.makeText(this, "Camera permission is required", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.toastCameraPermission), Toast.LENGTH_SHORT).show();
         }
     }
 

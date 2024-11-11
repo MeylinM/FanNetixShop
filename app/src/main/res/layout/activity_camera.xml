@@ -27,8 +27,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dp"
-        android:contentDescription="Capture"
-        android:foregroundTint="@color/cardview_shadow_end_color"
+        android:background="@color/cardview_shadow_end_color"
         android:src="@drawable/btn_camera2" />
 
     <ImageButton
@@ -39,8 +38,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="20dp"
         android:layout_marginBottom="20dp"
-        android:contentDescription="Return"
-        android:foregroundTint="@color/cardview_shadow_end_color"
+        android:background="@color/cardview_shadow_end_color"
         android:src="@drawable/back" />
 
     <ImageButton
@@ -51,8 +49,8 @@
         android:layout_alignParentStart="true"
         android:layout_marginStart="20dp"
         android:layout_marginBottom="20dp"
-        android:contentDescription="Close"
         android:src="@drawable/close"
+        android:background="@color/cardview_shadow_end_color"
         android:visibility="gone"/>
 
     <ImageButton
@@ -63,8 +61,8 @@
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
-        android:contentDescription="Check"
         android:src="@drawable/check"
+        android:background="@color/cardview_shadow_end_color"
         android:visibility="gone"/>
 </RelativeLayout>
 
