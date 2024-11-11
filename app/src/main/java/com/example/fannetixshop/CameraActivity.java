@@ -34,10 +34,10 @@ import java.util.concurrent.Executors;
 public class CameraActivity extends AppCompatActivity {
     private PreviewView previewView;
     private ImageButton captureButton, closeButton, checkButton, returnButton;
-    private ImageView imageViewCaptured; // ImageView para mostrar la imagen capturada
+    private ImageView imageViewCaptured;
     private ImageCapture imageCapture;
     private ExecutorService cameraExecutor;
-    private String imagePath; // Para almacenar el path de la imagen
+    private String imagePath; //Para almacenar el path de la imagen
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -31,7 +31,6 @@ public class CartActivity extends AppCompatActivity {
     private CartAdapter cartAdapter;
     private List<Articulo> articulosCarrito;
     private DatabaseHelper databaseHelper;
-    private SharedPreferences sharedPreferences;
 
     @SuppressLint("RestrictedApi")
     @Override
@@ -67,8 +66,6 @@ public class CartActivity extends AppCompatActivity {
             recyclerViewCarrito.setAdapter(cartAdapter);
 
         }
-
-
         // Configurar acción del botón de pagar
         btnPagar.setOnClickListener(v -> {
             comprarArticulosSeleccionados();
@@ -77,7 +74,7 @@ public class CartActivity extends AppCompatActivity {
         btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(CartActivity.this, ShopActivity.class);
+                Intent intent = new Intent(CartActivity.this, MenuArtistActivity.class);
                 startActivity(intent);
             }
         });
@@ -106,7 +103,7 @@ public class CartActivity extends AppCompatActivity {
         }
         // Actualizar el RecyclerView
         cartAdapter.notifyDataSetChanged();
-
+        actualizarTotal(0.00);
         // Mostrar mensaje de éxito
         Toast.makeText(this, getString(R.string.toastPayment), Toast.LENGTH_SHORT).show();
     }
@@ -126,6 +123,7 @@ public class CartActivity extends AppCompatActivity {
             boolean eliminado = databaseHelper.eliminarArticuloDelCarrito(userId, articulo.getId());
             if (eliminado) {
                 articulosCarrito.remove(articulo);
+                actualizarTotal(0.00);
             }
         }
 

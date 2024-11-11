@@ -4,9 +4,9 @@ public class Articulo {
     private int id;
     private String titulo;
     private String descripcion;
-    private Tipo tipo; // 'fanmade' o 'original'
-    private double precio; // Precio del artículo
-    private int idArtista; // ID del artista
+    private Tipo tipo; //'fanmade' o 'original'
+    private double precio;
+    private int idArtista;
     private String path;
     private boolean seleccionado;
 
@@ -15,25 +15,17 @@ public class Articulo {
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.tipo = tipo;
-        this.precio = precio; // Precio del artículo
-        this.idArtista = idArtista; // Asignar ID del artista
+        this.precio = precio;
+        this.idArtista = idArtista;
         this.path = path;
     }
-
-    public Articulo(String titulo, String descripcion, Tipo tipo, double precio, String path) {
-        this.titulo = titulo;
-        this.descripcion = descripcion;
-        this.tipo = tipo;
-        this.precio = precio; // Precio del artículo
-        this.path = path;
-    }
-
+    // Constructor actualizado sin idArtista
     public Articulo(int id, String titulo, String descripcion, Tipo tipo, double precio, String path) {
         this.id = id;
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.tipo = tipo;
-        this.precio = precio; // Precio del artículo
+        this.precio = precio;
         this.path = path;
         this.seleccionado = false;
     }
@@ -52,11 +44,11 @@ public class Articulo {
     }
 
     public double getPrecio() {
-        return precio; // Getter para el precio
+        return precio;
     }
 
     public int getIdArtista() {
-        return idArtista; // Getter para el ID del artista
+        return idArtista;
     }
 
     public String getPath(){
@@ -66,6 +58,7 @@ public class Articulo {
     public void setImagePath(String imagePath) {
         this.path = imagePath;
     }
+
     // Setter
     public void setIdArtista(int idArtista) {
         this.idArtista = idArtista;

@@ -65,7 +65,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
         holder.checkBox.setChecked(articulo.isSeleccionado());
 
         holder.checkBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            articulo.setSeleccionado(isChecked);  // Asegúrate de que el estado se guarda en el artículo
+            articulo.setSeleccionado(isChecked);
             if (isChecked) {
                 articulosSeleccionados.add(articulo);
             } else {

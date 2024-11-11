@@ -41,13 +41,12 @@ public class ArticuloAdapter extends RecyclerView.Adapter<ArticuloAdapter.Articu
         holder.tvPrecio.setText(String.valueOf(String.format("%.2f", articulo.getPrecio()))+"€");
         String path = articulo.getPath();
         if (path.startsWith("drawable/")) {
-            // Si el path es algo como "drawable/mi_imagen"
             String resourceName = path.substring("drawable/".length());
             int resourceId = context.getResources().getIdentifier(resourceName, "drawable", context.getPackageName());
             if (resourceId != 0) {
-                holder.ivArticulo.setImageResource(resourceId);  // Establecer la imagen
+                holder.ivArticulo.setImageResource(resourceId);  //Establecer la imagen
             } else {
-                holder.ivArticulo.setImageResource(R.drawable.default_image);  // Imagen por defecto si no se encuentra el recurso
+                holder.ivArticulo.setImageResource(R.drawable.default_image);  //Imagen por defecto si no se encuentra el recurso
             }
         } else{
             holder.ivArticulo.setImageURI(Uri.parse(path));

@@ -1,12 +1,12 @@
 <!--  Textos de la app en Español (predeterminado)  -->
 <resources>
     <string name="app_name">FanNetixShop</string>
-    <string name="btnSignIn">Iniciar Sesión</string>
+
     <!--  Textos usados en la actividad de inicio de sesión  -->
     <string name="text_subTitulo">Inicie sesión para continuar</string>
     <string name="text_email">EMAIL</string>
     <string name="text_passwd">CONTRASEÑA</string>
-    <string name="btn_SigIn">Inicio Sesión</string>
+
     <!--  Textos usados en la actividad subir producto  -->
     <string name="tvTitulo">Subir Producto</string>
     <string name="infoTextUpdateResources">Subir fotos</string>
@@ -19,6 +19,7 @@
     <string name="infoTextPrice">Precio</string>
     <string name="btnVolver">Volver</string>
     <string name="btnUploadProduct">Subir</string>
+
     <!--  Opciones del spinner (artistas)  -->
     <string name="spOpt1">Bruno Mars</string>
     <string name="spOpt2">BlackPink</string>
@@ -28,13 +29,18 @@
     <string name="spOpt6">IZ*ONE</string>
     <string name="spOpt7">Adele</string>
     <string name="spOpt8">Fito</string>
+
     <!--  Textos usados en los xml de la tienda -->
     <string name="btnBuy">Comprar</string>
     <string name="btnUpload">Subir Producto</string>
     <string name="textIG">Echa un vistazo a su instagram</string>
+    <string name="textWIKI">Echa un vistazo a su Wiki</string>
+    <string name="textYT">Echa un vistazo a su Youtube</string>
+
     <!--  Textos usados en el carrito de la compra  -->
     <string name="btnPay">Pagar</string>
     <string name="text_precio_total">Total:</string>
+
     <!--  Textos usados en los toasts  -->
     <string name="toastEmpty1">"Introduce un nombre para el producto"</string>
     <string name="toastEmpty2">"Introduce una descripción para el producto"</string>
@@ -44,10 +50,10 @@
     <string name="toastType">"Selecciona un tipo de producto"</string>
     <string name="toastCreated">"Artículo creado: "</string>
     <string name="toastNotCreated">"No se ha podido crear el articulo "</string>
-    <string name="toastEmptyCart">"El carrito está vacío o no se obtuvieron artículos."</string>
-    <string name="toastProductNotSelected">"No hay artículos seleccionados para comprar."</string>
+    <string name="toastEmptyCart">"El carrito está vacío"</string>
+    <string name="toastProductNotSelected">"No hay artículos seleccionados para comprar"</string>
     <string name="toastPayment">"Pago procesado"</string>
-    <string name="toastItemNotSelectedPay">"No hay artículos seleccionados para eliminar."</string>
+    <string name="toastItemNotSelectedPay">"No hay artículos seleccionados para eliminar"</string>
     <string name="toastDeletedItems">"Artículos eliminados correctamente"</string>
     <string name="toastUserNotFound">"Error, usuario no encontrado"</string>
     <string name="toastItemAddedCart">"Artículo añadido al carrito"</string>

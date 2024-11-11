@@ -101,7 +101,6 @@ public class UploadProductActivity extends AppCompatActivity {
                 crearArticulo();
             }
         });
-
         cargarArtistas();
     }
 
@@ -168,13 +167,13 @@ public class UploadProductActivity extends AppCompatActivity {
 
         Articulo articulo = new Articulo(titulo, descripcion, tipo, precio, idArtista, imagePath);
         if(databaseHelper.crearArticulo(articulo)){
-            // Mostrar un mensaje de confirmación
+            //Mostrar un mensaje de confirmación
             Toast.makeText(this, getString(R.string.toastCreated) + articulo.getTitulo(), Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(UploadProductActivity.this, MenuArtistActivity.class);
             startActivity(intent);
 
         }else{
-            // Mostrar un mensaje de confirmación
+            //Mostrar un mensaje de error
             Toast.makeText(this, getString(R.string.toastNotCreated), Toast.LENGTH_SHORT).show();
         }
 

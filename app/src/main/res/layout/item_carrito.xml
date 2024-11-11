@@ -29,7 +29,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_bold"
-            android:text="Título del artículo"
             android:textSize="24sp" />
 
         <TextView
@@ -40,7 +39,6 @@
             android:ellipsize="end"
             android:fontFamily="@font/poppins_medium"
             android:maxLines="2"
-            android:text="TextView"
             android:textColor="#979797" />
 
         <TextView
@@ -50,9 +48,8 @@
             android:layout_gravity="right"
             android:fontFamily="@font/poppins_medium"
             android:gravity="end"
-            android:text="Precio"
-            android:textSize="18sp"
-            android:paddingRight="20dp"/>
+            android:paddingRight="20dp"
+            android:textSize="18sp" />
 
     </LinearLayout>
 </LinearLayout>

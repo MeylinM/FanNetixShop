@@ -9,8 +9,9 @@
 
     <ImageView
         android:id="@+id/encabezado"
-        android:layout_width="410dp"
-        android:layout_height="210dp"
+        android:layout_width="504dp"
+        android:layout_height="213dp"
+        android:scaleType="centerCrop"
         app:layout_constraintBottom_toTopOf="@+id/video"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -90,25 +91,37 @@
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        android:paddingBottom="10dp">
 
         <!-- ImageView del botón Instagram -->
+        <ImageView
+            android:id="@+id/btnWiki"
+            android:layout_width="67dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="#041D1B20"
+            android:contentDescription="@string/textWIKI"
+            app:srcCompat="@drawable/wikipedia" />
+
+        <ImageView
+            android:id="@+id/btnYT"
+            android:layout_width="67dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="#041D1B20"
+            android:contentDescription="@string/textYT"
+            app:srcCompat="@drawable/video" />
+
         <ImageView
             android:id="@+id/btnig"
             android:layout_width="67dp"
             android:layout_height="50dp"
             android:background="#041D1B20"
+            android:contentDescription="@string/textIG"
             app:srcCompat="@drawable/instagram" />
 
         <!-- TextView al lado del botón -->
-        <TextView
-            android:id="@+id/btnigText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/textIG"
-            android:textSize="16sp"
-            android:layout_marginStart="8dp"
-            android:gravity="center_vertical" />
     </LinearLayout>
 
 

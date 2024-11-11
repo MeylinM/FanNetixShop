@@ -1,24 +1,25 @@
 <!--  Texts for the app in English  -->
 <resources>
     <string name="app_name">FanNetixShop</string>
-    <string name="btnSignIn">SignIn</string>
+
     <!--  Texts used in the Main activity in English  -->
     <string name="text_subTitulo">Sign in to continue</string>
     <string name="text_email">EMAIL</string>
     <string name="text_passwd">PASSWORD</string>
-    <string name="btn_SigIn">Sign In</string>
+
     <!--  Texts used in the upload product activity in English  -->
     <string name="tvTitulo">Upload Product</string>
     <string name="infoTextUpdateResources">Upload photos</string>
     <string name="infoTextName">Product name</string>
     <string name="infoTextDescription">Description</string>
     <string name="infoTextType">Type</string>
-    <string name="rbFanmade">Fanmade</string>
-    <string name="rbOriginal">Original</string>
+    <string name="rbFanmade">FANMADE</string>
+    <string name="rbOriginal">ORIGINAL</string>
     <string name="infoTextArtist">Artist</string>
     <string name="infoTextPrice">Price</string>
     <string name="btnVolver">Back</string>
     <string name="btnUploadProduct">Upload</string>
+
     <!--  Options for the spinner (artists)  -->
     <string name="spOpt1">Bruno Mars</string>
     <string name="spOpt2">BlackPink</string>
@@ -28,14 +29,18 @@
     <string name="spOpt6">IZ*ONE</string>
     <string name="spOpt7">Adele</string>
     <string name="spOpt8">Fito</string>
+
     <!--  Texts used in the shop xmls  -->
     <string name="btnBuy">Buy</string>
     <string name="btnUpload">Upload Product</string>
     <string name="textIG">Check their instagram</string>
+    <string name="textWIKI">Check their Wiki</string>
+    <string name="textYT">Check their Youtube</string>
 
     <!--  Texts used in the shopping cart  -->
     <string name="btnPay">Pay</string>
     <string name="text_precio_total">Total:</string>
+
     <!--  Texts used in the toasts  -->
     <string name="toastEmpty1">"Enter a name for the item"</string>
     <string name="toastEmpty2">"Enter a description for the item"</string>

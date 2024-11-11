@@ -14,7 +14,7 @@ import java.util.List;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "FanNetixShop.db";
-    private static final int DATABASE_VERSION = 3; // Aumenta la versión de la base de datos para aplicar el cambio de estructura
+    private static final int DATABASE_VERSION = 3;
 
     // SQL para crear las tablas
     private static final String CREATE_TABLE_USUARIOS = "CREATE TABLE Usuarios ("
@@ -33,7 +33,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + "descripcion TEXT,"
             + "tipo TEXT,"
             + "precio REAL NOT NULL,"
-            + "path TEXT,"  // Nuevo campo para la URL del archivo multimedia
+            + "path TEXT,"  //Campo para la URL del archivo multimedia
             + "FOREIGN KEY (id_artista) REFERENCES Artistas(id_artista));";
 
     private static final String CREATE_TABLE_ARTICULOS_CARRITO = "CREATE TABLE ArticulosCarrito ("

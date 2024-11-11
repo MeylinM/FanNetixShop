@@ -11,7 +11,6 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_medium"
         android:gravity="center"
-        android:text="Tipo"
         android:textSize="16sp"
         android:textStyle="italic" />
 
@@ -25,7 +24,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_bold"
-        android:text="Titulo"
         android:textAlignment="center"
         android:textSize="24sp" />
 
@@ -34,7 +32,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_medium"
-        android:text="Descripcion"
         android:textAlignment="center"
         android:textSize="20sp" />
 
@@ -61,7 +58,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_medium"
-            android:text="Precio"
             android:textSize="20sp" />
 
     </LinearLayout>
