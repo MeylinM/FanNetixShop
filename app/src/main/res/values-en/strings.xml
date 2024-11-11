@@ -1,0 +1,64 @@
+<!--  Texts for the app in English  -->
+<resources>
+    <string name="app_name">FanNetixShop</string>
+
+    <!--  Texts used in the Main activity in English  -->
+    <string name="text_subTitulo">Sign in to continue</string>
+    <string name="text_email">EMAIL</string>
+    <string name="text_passwd">PASSWORD</string>
+
+    <!--  Texts used in the upload product activity in English  -->
+    <string name="tvTitulo">Upload Product</string>
+    <string name="infoTextUpdateResources">Upload photos</string>
+    <string name="infoTextName">Product name</string>
+    <string name="infoTextDescription">Description</string>
+    <string name="infoTextType">Type</string>
+    <string name="rbFanmade">FANMADE</string>
+    <string name="rbOriginal">ORIGINAL</string>
+    <string name="infoTextArtist">Artist</string>
+    <string name="infoTextPrice">Price</string>
+    <string name="btnVolver">Back</string>
+    <string name="btnUploadProduct">Upload</string>
+
+    <!--  Options for the spinner (artists)  -->
+    <string name="spOpt1">Bruno Mars</string>
+    <string name="spOpt2">BlackPink</string>
+    <string name="spOpt3">Eminem</string>
+    <string name="spOpt4">Stray Kids</string>
+    <string name="spOpt5">Harry Styles</string>
+    <string name="spOpt6">IZ*ONE</string>
+    <string name="spOpt7">Adele</string>
+    <string name="spOpt8">Fito</string>
+
+    <!--  Texts used in the shop xmls  -->
+    <string name="btnBuy">Buy</string>
+    <string name="btnUpload">Upload Product</string>
+    <string name="textIG">Check their instagram</string>
+    <string name="textWIKI">Check their Wiki</string>
+    <string name="textYT">Check their Youtube</string>
+
+    <!--  Texts used in the shopping cart  -->
+    <string name="btnPay">Pay</string>
+    <string name="text_precio_total">Total:</string>
+
+    <!--  Texts used in the toasts  -->
+    <string name="toastEmpty1">"Enter a name for the item"</string>
+    <string name="toastEmpty2">"Enter a description for the item"</string>
+    <string name="toastEmpty3">"Enter a price for the item"</string>
+    <string name="toastPriceFormat">"Enter a valid price"</string>
+    <string name="toastPhoto">"Please, take a picture of the item"</string>
+    <string name="toastType">"Select a type for the item"</string>
+    <string name="toastCreated">"Created item: "</string>
+    <string name="toastNotCreated">"Item cannot be created"</string>
+    <string name="toastEmptyCart">"Shopping cart is empty"</string>
+    <string name="toastProductNotSelected">"There are no items selected for purchase"</string>
+    <string name="toastPayment">"Payment processed"</string>
+    <string name="toastItemNotSelectedPay">"There are no items selected to delete"</string>
+    <string name="toastDeletedItems">"Items deleted successfully"</string>
+    <string name="toastUserNotFound">"Error, user not found"</string>
+    <string name="toastItemAddedCart">"Item added to the cart"</string>
+    <string name="toastItemNotAddedCart">"You already have that item on the cart"</string>
+    <string name="toastImageSaved">"Photo saved"</string>
+    <string name="toastImageError">"Error while saving image"</string>
+    <string name="toastCameraPermission">"Camera permission is required"</string>
+</resources>

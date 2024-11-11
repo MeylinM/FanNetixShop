@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <androidx.camera.view.PreviewView
+        android:id="@+id/previewView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+
+    </androidx.camera.view.PreviewView>
+
+    <ImageView
+        android:id="@+id/imageViewCaptured"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="16dp"
+        android:visibility="gone" />
+
+    <ImageButton
+        android:id="@+id/captureButton"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:background="@color/cardview_shadow_end_color"
+        android:src="@drawable/btn_camera2" />
+
+    <ImageButton
+        android:id="@+id/returnButton"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@color/cardview_shadow_end_color"
+        android:src="@drawable/back" />
+
+    <ImageButton
+        android:id="@+id/closeButton"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/close"
+        android:background="@color/cardview_shadow_end_color"
+        android:visibility="gone"/>
+
+    <ImageButton
+        android:id="@+id/checkButton"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/check"
+        android:background="@color/cardview_shadow_end_color"
+        android:visibility="gone"/>
+</RelativeLayout>
+

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".MenuArtistActivity">
+
+    <ImageView
+        android:id="@+id/backgroundImage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/fondo2"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/imgArtist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="Titulo"
+                app:srcCompat="@drawable/titulo_artist" />
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/btnBlack"
+                        android:layout_width="210dp"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/cardview_shadow_end_color"
+                        android:contentDescription="Boton de Black Pink"
+                        app:srcCompat="@drawable/btn_black" />
+
+                    <ImageButton
+                        android:id="@+id/btnAdele"
+                        android:layout_width="202dp"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/cardview_shadow_end_color"
+                        android:contentDescription="Boton de Adele"
+                        app:srcCompat="@drawable/btn_adele" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageButton
+                        android:id="@+id/btnEminem"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/cardview_shadow_end_color"
+                        android:contentDescription="Boton de Eminem"
+                        app:srcCompat="@drawable/btn_eminem" />
+
+                    <ImageButton
+                        android:id="@+id/btnBruno"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/cardview_shadow_end_color"
+                        android:contentDescription="Boton de Bruno Mars"
+                        app:srcCompat="@drawable/btn_bruno" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageButton
+                        android:id="@+id/btnHarry"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/cardview_shadow_end_color"
+                        android:contentDescription="Boton de Harry Styles"
+                        app:srcCompat="@drawable/btn_harry" />
+
+                    <ImageButton
+                        android:id="@+id/btnFito"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/cardview_shadow_end_color"
+                        android:contentDescription="Boton de Fito"
+                        app:srcCompat="@drawable/btn_fito" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageButton
+                        android:id="@+id/btnIZ"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/cardview_shadow_end_color"
+                        android:contentDescription="Boton de IZ*ONE"
+                        app:srcCompat="@drawable/btn_iz" />
+
+                    <ImageButton
+                        android:id="@+id/btnStray"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/cardview_shadow_end_color"
+                        android:contentDescription="Boton de Stray Kids"
+                        app:srcCompat="@drawable/btn_stray" />
+                </TableRow>
+            </TableLayout>
+        </LinearLayout>
+    </ScrollView>
+    <Button
+        android:id="@+id/btnSubirProducto"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:backgroundTint="#000000"
+        android:text="@string/btnUploadProduct"
+        android:fontFamily="@font/poppins_medium"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
