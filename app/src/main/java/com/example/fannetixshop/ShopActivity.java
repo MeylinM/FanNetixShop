@@ -57,8 +57,12 @@ public class ShopActivity extends AppCompatActivity {
                     // Si el video está reproduciéndose, lo pausamos
                     videoView.pause();
                 } else {
-                    // Si el video está pausado, lo reproducimos
-                    videoView.start();
+                    // Si el audio está sonando, pausamos el audio
+                    if (mediaPlayer.isPlaying()) {
+                        mediaPlayer.pause();
+                        btnPlay.setImageDrawable(getDrawable(R.drawable.play)); // Cambiar el botón de audio a play
+                    }
+                    videoView.start(); // Reproducir el video
                 }
             }
         });
@@ -75,6 +79,9 @@ public class ShopActivity extends AppCompatActivity {
         btnPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (videoView.isPlaying()) {
+                    videoView.pause();
+                }
                 if (!mediaPlayer.isPlaying()) {
                     mediaPlayer.start();
                     btnPlay.setImageDrawable(getDrawable(R.drawable.pause));

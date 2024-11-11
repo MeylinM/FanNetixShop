@@ -68,7 +68,11 @@ public class CartActivity extends AppCompatActivity {
         }
         // Configurar acción del botón de pagar
         btnPagar.setOnClickListener(v -> {
-            comprarArticulosSeleccionados();
+            if (articulosCarrito.isEmpty()) {
+                Toast.makeText(this, getString(R.string.toastProductNotSelected), Toast.LENGTH_SHORT).show();
+            }else{
+                comprarArticulosSeleccionados();
+            }
         });
 
         btnVolver.setOnClickListener(new View.OnClickListener() {
@@ -80,7 +84,11 @@ public class CartActivity extends AppCompatActivity {
         });
 
         btnEliminar.setOnClickListener(v -> {
-            eliminarArticulosSeleccionados();
+            if (articulosCarrito.isEmpty()) {
+                Toast.makeText(this, getString(R.string.toastItemNotSelectedPay), Toast.LENGTH_SHORT).show();
+            }else{
+                eliminarArticulosSeleccionados();
+            }
         });
     }
 

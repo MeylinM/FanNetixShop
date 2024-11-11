@@ -6,17 +6,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ShopActivity">
-
+    <ImageView
+        android:id="@+id/encabezadoCarrito"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/encabezado"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/header" />
     <ImageView
         android:id="@+id/encabezado"
-        android:layout_width="504dp"
-        android:layout_height="213dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:scaleType="centerCrop"
-        app:layout_constraintBottom_toTopOf="@+id/video"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:adjustViewBounds="true"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/video"
+        app:srcCompat="@drawable/encabezado"/>
+    <ImageView
+        android:id="@+id/volver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="12dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/flecha_volver_peque" />
     <LinearLayout
         android:id="@+id/video"
         android:layout_width="match_parent"
@@ -47,41 +66,27 @@
         app:layout_constraintVertical_bias="0.0"
         tools:listitem="@layout/item" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/btnPlay"
-        android:layout_width="67dp"
-        android:layout_height="69dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.116"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.128"
-        app:srcCompat="@drawable/play" />
-
-    <ImageView
-        android:id="@+id/volver"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.083"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/encabezado"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/flecha_volver_peque" />
+        android:background="@drawable/play"
+        app:layout_constraintTop_toTopOf="@id/encabezado"
+        app:layout_constraintStart_toStartOf="@id/encabezado"
+        android:layout_margin="16dp" />
+
+
+
 
     <ImageView
         android:id="@+id/carrito"
         android:layout_width="64dp"
         android:layout_height="56dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.925"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="?attr/selectableItemBackgroundBorderless" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/cart" />
 
     <LinearLayout
         android:id="@+id/btnigLayout"
